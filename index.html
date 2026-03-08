@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重庆市垫江县第十中学 | Dianjiang No.10 Middle School</title>
+    
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Premium Color Palette */
+            --primary-color: #0A192F;      /* 极深邃的海军蓝 */
+            --secondary-color: #D4AF37;    /* 雅致的高级金 */
+            --bg-color: #F8F9FA;           /* 极浅的高级灰白 */
+            --surface-color: #FFFFFF;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --border-color: #EAEAEA;
+            --font-size-base: 16px;
+            --nav-bg: rgba(255, 255, 255, 0.7);
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.1);
+            --shadow-premium: 0 30px 60px rgba(10, 25, 47, 0.15);
+            
+            --font-heading: 'Noto Serif SC', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #E6F1FF;
+            --secondary-color: #C5A059;
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --text-primary: #F0F0F0;
+            --text-secondary: #A0A0A0;
+            --border-color: #222222;
+            --nav-bg: rgba(5, 5, 5, 0.8);
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.6);
+            --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Hide default cursor for custom one */
+        }
+
+        /* Base Typography & Background Transition */
+        html {
+            font-size: var(--font-size-base);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.8s ease, color 0.8s ease;
+        }
+
+        /* Language Toggle System */
+        body.lang-en .zh, body.lang-en .tw { display: none !important; }
+        body.lang-zh .en, body.lang-zh .tw { display: none !important; }
+        body.lang-tw .zh, body.lang-tw .en { display: none !important; }
+
+        a, button, .interactive { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        ul { list-style: none; }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000;
+            border-radius: 50%; transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease-in-out;
+        }
+        .cursor-dot { width: 6px; height: 6px; background: var(--secondary-color); }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid var(--secondary-color);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
+        }
+        .hovering .cursor-outline {
+            width: 70px; height: 70px; background: rgba(212, 175, 55, 0.1); border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+        .hovering .cursor-dot { transform: translate(-50%, -50%) scale(0.5); }
+
+        @media (max-width: 768px) {
+            * { cursor: auto !important; }
+            .cursor-dot, .cursor-outline { display: none !important; }
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #0A192F; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+        .loader-logo-wrap { overflow: hidden; margin-bottom: 20px; }
+        .loader-logo {
+            color: #fff; font-family: var(--font-heading); font-size: 2.5rem; letter-spacing: 5px;
+            transform: translateY(100%); animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .loader-line-wrap { width: 250px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;}
+        .loader-line {
+            width: 0; height: 100%; background: var(--secondary-color);
+            animation: lineLoad 2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+        }
+        @keyframes textReveal { to { transform: translateY(0); } }
+        @keyframes lineLoad { 0% { width: 0; } 50% { width: 60%; } 100% { width: 100%; } }
+        body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        /* Headers */
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
+
+        .section-header { text-align: center; margin-bottom: 5rem; position: relative; }
+        .section-header .subtitle {
+            display: inline-block; font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 6px; color: var(--secondary-color); margin-bottom: 1rem;
+            transform: translateY(20px); opacity: 0; animation: fadeUpIn 0.8s forwards 0.2s;
+        }
+        .section-header h2 { font-size: 3rem; color: var(--text-primary); margin-bottom: 1.5rem; }
+        .section-header .line { width: 80px; height: 2px; background-color: var(--secondary-color); margin: 0 auto; transition: width 0.5s; }
+        .section-header:hover .line { width: 120px; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
+            border-bottom: 1px solid rgba(128,128,128,0.1);
+            transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease;
+        }
+        .navbar.scrolled { height: 70px; background: var(--surface-color); box-shadow: var(--shadow-light); }
+        .nav-brand { display: flex; align-items: center; gap: 15px; }
+        .nav-brand img { height: 45px; border-radius: 50%; transition: transform 0.5s; }
+        .nav-brand:hover img { transform: rotate(360deg); }
+        .nav-brand h1 { font-size: 1.4rem; color: var(--text-primary); letter-spacing: 2px; margin: 0; }
+
+        .nav-links { display: flex; gap: 3rem; }
+        .nav-links a { font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; color: var(--text-primary); position: relative; padding-bottom: 5px; }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .toolbar { display: flex; gap: 1rem; }
+        .tool-btn {
+            background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);
+            width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
+        }
+        .tool-btn::before {
+            content: ''; position: absolute; inset: 0; background: var(--secondary-color);
+            border-radius: 50%; transform: scale(0); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1;
+        }
+        .tool-btn:hover { border-color: var(--secondary-color); color: #fff; }
+        .tool-btn:hover::before { transform: scale(1); }
+
+        /* Hero Section */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; }
+        .hero-bg {
+            position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
+            background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lWmtHwy9_5yKfPO05JQ4z0pZfUrdAAJIEWsbqKVoVYSBMDWmGl7kAQADAgADeAADOgQ.jpg') center/cover no-repeat;
+            animation: cinematicZoom 25s infinite alternate ease-in-out; z-index: 1;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 2;
+            background: linear-gradient(180deg, rgba(10,25,47,0.3) 0%, rgba(10,25,47,0.8) 100%);
+            mix-blend-mode: multiply;
+        }
+        .hero-content { position: relative; z-index: 3; padding: 0 20px; }
+        .hero-content h1 {
+            font-size: 5rem; letter-spacing: 8px; margin-bottom: 1.5rem; text-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            font-weight: 900; background: linear-gradient(to right, #fff, #e0e0e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-content p {
+            font-family: var(--font-body); font-size: 1.3rem; font-weight: 400; letter-spacing: 12px;
+            color: var(--secondary-color); text-transform: uppercase;
+        }
+        .scroll-down {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; color: #fff; font-size: 1.8rem;
+            animation: bounce 2s infinite; opacity: 0.8; transition: opacity 0.3s;
+        }
+        .scroll-down:hover { opacity: 1; color: var(--secondary-color); }
+
+        @keyframes cinematicZoom { from { transform: scale(1); } to { transform: scale(1.15); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);} 40% {transform: translateY(-20px) translateX(-50%);} 60% {transform: translateY(-10px) translateX(-50%);} }
+
+        .container { max-width: 1500px; margin: 0 auto; padding: 8rem 5%; }
+
+        /* Stats (Premium Glassmorphism) */
+        .stats-wrap { position: relative; z-index: 10; margin-top: -80px; padding: 0 5%; }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border-radius: 24px; box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(255,255,255,0.8); padding: 4rem 0; overflow: hidden; position: relative;
+        }
+        [data-theme="dark"] .stats-grid {
+            background: rgba(20, 20, 20, 0.6); border-color: rgba(255,255,255,0.1);
+        }
+        .stat-item { text-align: center; border-right: 1px solid var(--border-color); transition: transform 0.4s; }
+        .stat-item:hover { transform: translateY(-5px); }
+        .stat-item:last-child { border-right: none; }
+        .stat-item h3 { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 0.5rem; font-family: var(--font-body); font-weight: 300; line-height: 1; }
+        .stat-item p { font-size: 0.95rem; color: var(--text-secondary); letter-spacing: 3px; text-transform: uppercase; font-weight: 500;}
+
+        /* About Section */
+        .about-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 8rem; align-items: center; }
+        .about-text h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; position: relative; }
+        .about-text p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.8rem; text-align: justify; line-height: 2; }
+        
+        .about-img-wrap { position: relative; perspective: 1000px; }
+        .about-img-bg {
+            position: absolute; top: -30px; left: -30px; width: 100%; height: 100%;
+            border: 2px solid var(--secondary-color); border-radius: 24px; z-index: 0; transition: var(--transition-smooth);
+        }
+        .about-img {
+            position: relative; z-index: 1; border-radius: 24px; overflow: hidden;
+            box-shadow: var(--shadow-premium); transition: var(--transition-smooth);
+        }
+        .about-img img { width: 100%; display: block; filter: grayscale(20%); transition: var(--transition-smooth); transform: scale(1.02); }
+        .about-img-wrap:hover .about-img { transform: rotateY(-5deg) rotateX(5deg); }
+        .about-img-wrap:hover .about-img-bg { transform: translate(15px, 15px); }
+        .about-img-wrap:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+        /* Philosophy Section */
+        .philo-section { background-color: var(--surface-color); position: relative; padding: 6rem 0; }
+        .philo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+        .philo-card {
+            padding: 4rem 2rem; background: var(--bg-color); border-radius: 20px;
+            text-align: center; transition: var(--transition-smooth);
+            border: 1px solid transparent; position: relative; overflow: hidden; z-index: 1;
+        }
+        .philo-card::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0%;
+            background: linear-gradient(180deg, var(--secondary-color) 0%, transparent 100%);
+            opacity: 0.05; z-index: -1; transition: height 0.6s ease;
+        }
+        .philo-card:hover { transform: translateY(-20px); border-color: var(--secondary-color); box-shadow: var(--shadow-premium); }
+        .philo-card:hover::after { height: 100%; }
+        .philo-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 2rem; transition: transform 0.4s; }
+        .philo-card:hover i { transform: scale(1.2) rotate(10deg); }
+        .philo-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .philo-card p { font-size: 1rem; color: var(--text-secondary); }
+
+        /* Editorial News Section (MAGAZINE STYLE) */
+        .news-editorial { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-bottom: 5rem; }
+        .news-featured {
+            position: relative; border-radius: 24px; overflow: hidden; height: 550px;
+            box-shadow: var(--shadow-premium); display: flex; align-items: flex-end;
+            background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp') center/cover;
+            transition: var(--transition-smooth);
+        }
+        .news-featured::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, #0A192F 0%, transparent 70%); transition: opacity 0.5s;
+        }
+        .news-featured:hover { transform: scale(1.02); }
+        .news-featured:hover::before { opacity: 0.8; }
+        .news-featured-content { position: relative; z-index: 2; padding: 4rem 3rem; color: #fff; width: 100%; transition: transform 0.5s; }
+        .news-featured:hover .news-featured-content { transform: translateY(-10px); }
+        .news-tag {
+            display: inline-block; padding: 6px 16px; background: var(--secondary-color); color: #fff;
+            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; margin-bottom: 1.5rem;
+        }
+        .news-featured-content h3 { font-size: 2.2rem; margin-bottom: 1rem; }
+        
+        .news-list { display: flex; flex-direction: column; justify-content: space-between; height: 550px;}
+        .news-list-item {
+            display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; padding-top: 1rem;
+            transition: var(--transition-smooth); position: relative;
+        }
+        .news-list-item::before {
+            content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%);
+            width: 4px; height: 0; background: var(--secondary-color); transition: height 0.4s;
+        }
+        .news-list-item:hover { transform: translateX(20px); border-color: transparent; }
+        .news-list-item:hover::before { height: 70%; }
+        .news-list-item:last-child { border-bottom: none; }
+        .news-list-item .date { font-family: var(--font-body); font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 1px; }
+        .news-list-item h4 { font-size: 1.3rem; color: var(--text-primary); transition: color 0.3s; line-height: 1.5; }
+
+        .news-grid-bottom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+        .news-card {
+            background: var(--surface-color); border-radius: 16px; padding: 2.5rem;
+            border: 1px solid var(--border-color); transition: var(--transition-smooth);
+            display: flex; flex-direction: column; justify-content: space-between; position: relative;
+        }
+        .news-card:hover { box-shadow: var(--shadow-hover); border-color: var(--secondary-color); transform: translateY(-10px); }
+        .news-card .date { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .news-card h4 { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; }
+        .read-more {
+            font-size: 0.9rem; font-weight: 600; color: var(--primary-color);
+            display: flex; align-items: center; gap: 8px; text-transform: uppercase; transition: color 0.3s;
+        }
+        .read-more i { transition: transform 0.3s; }
+        .news-card:hover .read-more { color: var(--secondary-color); }
+        .news-card:hover .read-more i { transform: translateX(5px); }
+
+        /* Premium Bento Box Gallery */
+        .bento-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 320px; gap: 1.5rem; }
+        .bento-item {
+            position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow-light); transition: var(--transition-smooth);
+        }
+        .bento-item.large { grid-column: span 2; grid-row: span 2; }
+        .bento-item.wide { grid-column: span 2; grid-row: span 1; }
+        .bento-item.tall { grid-column: span 1; grid-row: span 2; }
+        
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9); }
+        .bento-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+            display: flex; align-items: flex-end; padding: 2.5rem; opacity: 0; transition: var(--transition-smooth);
+        }
+        .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+        .bento-item:hover img { transform: scale(1.1); filter: brightness(1); }
+        .bento-item:hover .bento-overlay { opacity: 1; }
+        .bento-overlay h3 { color: #fff; font-size: 1.5rem; transform: translateY(20px); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bento-item:hover .bento-overlay h3 { transform: translateY(0); }
+
+        /* Map & Contact (Upgraded Map) */
+        .contact-section { background: var(--primary-color); color: #fff; padding: 8rem 0; position: relative; overflow: hidden; }
+        .contact-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%); pointer-events: none;
+        }
+        .contact-section .section-header h2 { color: #fff; }
+        .contact-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; }
+        
+        .map-wrapper {
+            border-radius: 24px; overflow: hidden; padding: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3); transition: var(--transition-smooth);
+        }
+        .map-wrapper:hover { transform: translateY(-10px); border-color: rgba(212,175,55,0.5); }
+        .interactive-map {
+            width: 100%; height: 500px; border-radius: 16px; object-fit: cover;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9);
+        }
+        .map-wrapper:hover .interactive-map { transform: scale(1.05); filter: brightness(1.05); }
+
+        .contact-list li { display: flex; align-items: flex-start; gap: 1.8rem; margin-bottom: 2.5rem; font-size: 1.15rem; color: rgba(255,255,255,0.7); transition: transform 0.3s; }
+        .contact-list li:hover { transform: translateX(10px); color: #fff; }
+        .contact-list i { font-size: 1.8rem; color: var(--secondary-color); margin-top: 5px; }
+        .contact-list strong { color: #fff; font-family: var(--font-heading); font-size: 1.3rem; display: block; margin-bottom: 8px; letter-spacing: 1px;}
+
+        /* Footer */
+        .footer {
+            background: #050B14; color: rgba(255,255,255,0.5); padding: 5rem 5% 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); position: relative;
+        }
+        .footer-logo { height: 70px; border-radius: 50%; margin-bottom: 2rem; opacity: 0.9; transition: transform 0.5s; }
+        .footer-logo:hover { transform: scale(1.1); }
+        .footer h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
+        .footer-tech { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--font-body); font-size: 0.9rem; }
+        .tech-icons { display: flex; justify-content: center; gap: 25px; font-size: 1.8rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.3); }
+        .tech-icons i:hover { color: var(--secondary-color); transition: 0.3s; }
+
+        /* Mobile Adjustments */
+        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-primary); }
+        @media (max-width: 1024px) {
+            .about-grid, .news-editorial, .contact-wrap { grid-template-columns: 1fr; }
+            .stats-grid, .philo-grid, .news-grid-bottom, .bento-gallery { grid-template-columns: repeat(2, 1fr); }
+            .bento-item.large, .bento-item.wide, .bento-item.tall { grid-column: span 2; grid-row: span 1; }
+            .news-featured { height: 400px; }
+            .news-list { height: auto; gap: 2rem; margin-top: 2rem;}
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+                background: var(--surface-color); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .nav-links.active { left: 0; }
+            .mobile-toggle { display: block; }
+            .stats-grid, .philo-grid, .news-grid-bottom, .bento-gallery { grid-template-columns: 1fr; }
+            .bento-item.large, .bento-item.wide, .bento-item.tall { grid-column: span 1; }
+            .hero-content h1 { font-size: 3rem; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border-color); padding: 2rem 0; }
+            .stat-item:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body class="lang-zh" id="top">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Cinematic Preloader -->
+    <div id="preloader">
+        <div class="loader-logo-wrap">
+            <div class="loader-logo">DIANJIANG NO.10</div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand interactive">
+            <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" alt="Logo">
+            <div>
+                <h1 class="zh">垫江第十中学校</h1>
+                <h1 class="en">Dianjiang No.10</h1>
+                <h1 class="tw">墊江第十中學校</h1>
+            </div>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#top" class="interactive"><span class="zh">首页</span><span class="en">Home</span><span class="tw">首頁</span></a></li>
+            <li><a href="#about" class="interactive"><span class="zh">学校概况</span><span class="en">About</span><span class="tw">學校概況</span></a></li>
+            <li><a href="#culture" class="interactive"><span class="zh">办学理念</span><span class="en">Philosophy</span><span class="tw">辦學理念</span></a></li>
+            <li><a href="#news" class="interactive"><span class="zh">最新动态</span><span class="en">Editorial</span><span class="tw">最新動態</span></a></li>
+            <li><a href="#campus" class="interactive"><span class="zh">校园画廊</span><span class="en">Gallery</span><span class="tw">校園畫廊</span></a></li>
+            <li><a href="#contact" class="interactive"><span class="zh">联系我们</span><span class="en">Contact</span><span class="tw">聯絡我們</span></a></li>
+        </ul>
+
+        <div class="toolbar">
+            <button class="tool-btn interactive" onclick="toggleFontSize()" aria-label="A11y Typography"><i class="fa-solid fa-text-height"></i></button>
+            <button class="tool-btn interactive" onclick="toggleTheme()" id="themeBtn" aria-label="Theme"><i class="fa-solid fa-moon"></i></button>
+            <button class="tool-btn interactive" onclick="toggleLanguage()" aria-label="Language"><i class="fa-solid fa-globe"></i></button>
+            <i class="fa-solid fa-bars mobile-toggle interactive" onclick="toggleMobileMenu()"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Cinematic Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="zh" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">重庆市垫江县第十中学</h1>
+            <h1 class="en" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Dianjiang No.10 Middle School</h1>
+            <h1 class="tw" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">重慶市墊江縣第十中學</h1>
+            
+            <p class="zh" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">恒德凝命 · 立德树人</p>
+            <p class="en" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">Constant Virtue · Shaping Destinies</p>
+            <p class="tw" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">恒德凝命 · 立德樹人</p>
+        </div>
+        <a href="#stats" class="scroll-down interactive"><i class="fa-solid fa-chevron-down"></i></a>
+    </section>
+
+    <!-- Glassmorphism Stats -->
+    <div class="stats-wrap" id="stats">
+        <div class="stats-grid" data-aos="fade-up" data-aos-duration="1200" data-aos-offset="0">
+            <div class="stat-item interactive">
+                <h3>3005</h3>
+                <p><span class="zh">在校生</span><span class="en">Students</span><span class="tw">在校生</span></p>
+            </div>
+            <div class="stat-item interactive">
+                <h3>66</h3>
+                <p><span class="zh">教学班级</span><span class="en">Classes</span><span class="tw">教學班級</span></p>
+            </div>
+            <div class="stat-item interactive">
+                <h3>30<span style="font-size:1.5rem">亩</span></h3>
+                <p><span class="zh">耕读园</span><span class="en">Labor Base</span><span class="tw">耕讀園</span></p>
+            </div>
+            <div class="stat-item interactive">
+                <h3 style="font-size:2.2rem; line-height:3.5rem;"><span class="zh">全国</span><span class="en">National</span><span class="tw">全國</span></h3>
+                <p><span class="zh">足球特色校</span><span class="en">Football Sch.</span><span class="tw">足球特色校</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="container" id="about">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+            <span class="subtitle">History & Vision</span>
+            <h2><span class="zh">学校概况</span><span class="en">About The School</span><span class="tw">學校概況</span></h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-img-wrap interactive" data-aos="fade-right" data-aos-duration="1500">
+                <div class="about-img-bg"></div>
+                <div class="about-img">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png" alt="Campus">
+                </div>
+            </div>
+            <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                <h3>
+                    <span class="zh">厚重使命 · 卓越育人</span>
+                    <span class="en">A Legacy of Excellence</span>
+                    <span class="tw">厚重使命 · 卓越育人</span>
+                </h3>
+                <p class="zh">重庆市垫江第十中学校位于桂溪街道渝巫路259号，是一所由垫江县教育委员会直接举办的公办初中。学校前身为“凤山中学”，2016年迁至现址，2018年正式更名。开办资金达5843万元，以雄厚的实力为学生终身发展奠基。</p>
+                <p class="en">Located at No. 259 Yuwu Road, Dianjiang No.10 Middle School is a premier public junior high with a funding of 58.43 million RMB. Moving to its modern campus in 2016, the school is committed to high-quality compulsory education and deep learning.</p>
+                <p class="tw">重慶市墊江第十中學校位於渝巫路259號，前身為鳳山中學。2016年遷至現址，開辦資金達5843萬元，以雄厚的實力為學生終身發展奠基。</p>
+                
+                <p class="zh">我们首创“三段六环—小组合作”智慧课堂，构建“四季四节”主题活动（春体、夏劳、秋科、冬艺）。如今，垫江十中已成为全县小学生的理想殿堂，向党和人民交出满意的立德树人答卷。</p>
+                <p class="en">We pioneer the "Smart Classroom" model and the "Four Seasons, Four Festivals" holistic education system. Today, we stand as a top choice for primary graduates in the region, pursuing ultimate educational excellence.</p>
+                <p class="tw">我們首創“三段六環”智慧課堂，構建“四季四節”主題活動。如今，墊江十中已成為全縣學子的理想殿堂，追求卓越育人。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philo-section" id="culture">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+                <span class="subtitle">Core Philosophy</span>
+                <h2><span class="zh">办学理念</span><span class="en">Philosophy</span><span class="tw">辦學理念</span></h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="philo-grid">
+                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h3><span class="zh">校训：恒德凝命</span><span class="en">Motto</span></h3>
+                    <p class="zh">永恒不变的道德操守是凝聚生命力量、实现人生价值的根基。</p>
+                    <p class="en">Eternal moral integrity is the foundation of life's value.</p>
+                </div>
+                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h3><span class="zh">核心：立德 成己 达人</span><span class="en">Core Values</span></h3>
+                    <p class="zh">修养品德，成就自我，进而惠及他人、奉献社会。</p>
+                    <p class="en">Cultivate character, achieve oneself, benefit society.</p>
+                </div>
+                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <h3><span class="zh">教风：四业精神</span><span class="en">Teaching</span></h3>
+                    <p class="zh">敬业、勤业、精业、乐业，在教育中寻找职业幸福感。</p>
+                    <p class="en">Dedication, diligence, excellence, and joy in teaching.</p>
+                </div>
+                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3><span class="zh">学风：四学境界</span><span class="en">Learning</span></h3>
+                    <p class="zh">实学、善学、辩学、博学，培养批判思维，求真务实。</p>
+                    <p class="en">Practical, proficient, critical, and profound learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial News Section -->
+    <section class="container" id="news">
+        <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+            <span class="subtitle">Latest Insights</span>
+            <h2><span class="zh">最新动态</span><span class="en">Editorial & News</span><span class="tw">最新動態</span></h2>
+            <div class="line"></div>
+        </div>
+
+        <!-- Magazine Layout: Top 5 News -->
+        <div class="news-editorial">
+            <a href="https://www.jianpian.cn/a/1i8cb1cs" target="_blank" class="news-featured interactive" data-aos="fade-right" data-aos-duration="1500">
+                <div class="news-featured-content">
+                    <span class="news-tag"><span class="zh">学期寄语</span><span class="en">Highlight</span></span>
+                    <h3>以梦为驰，向光而行 —— 垫江十中26年春期新学期寄语</h3>
+                    <span style="font-family: var(--font-body); opacity:0.8; font-size: 0.95rem;">6天前发布</span>
+                </div>
+            </a>
+            
+            <div class="news-list" data-aos="fade-left" data-aos-duration="1500">
+                <a href="https://www.jianpian.cn/a/1i6mi52h" target="_blank" class="news-list-item interactive">
+                    <div class="date">02-27 · 安全德育</div>
+                    <h4>以安全护成长，以德育润青春 —— 致全体学生及家长的一封信</h4>
+                </a>
+                <a href="https://www.jianpian.cn/a/1heuzjjo" target="_blank" class="news-list-item interactive">
+                    <div class="date">教研快讯</div>
+                    <h4>共研·共析·共成长 —— 垫江十中初2024级学情分析会</h4>
+                </a>
+                <a href="https://www.jianpian.cn/a/1hdjvapm" target="_blank" class="news-list-item interactive">
+                    <div class="date">2025-12-23 · 家长会</div>
+                    <h4>用陪伴的“+”法，解初二的成长方程 —— 初二年级家长会</h4>
+                </a>
+                <a href="https://www.jianpian.cn/a/1h6b567r" target="_blank" class="news-list-item interactive">
+                    <div class="date">2025-12-09 · 艺术节</div>
+                    <h4>少年有为正当时 青春绽放艺启航 —— 纪念“12.9”运动文艺汇演</h4>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom Grid: News 6-9 -->
+        <div class="news-grid-bottom">
+            <a href="https://www.jianpian.cn/a/1h5tagzs" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000">
+                <div>
+                    <div class="date">2025-12-08</div>
+                    <h4>垫江十中2025年秋期足球比赛落幕，尽显绿茵风采</h4>
+                </div>
+                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+            </a>
+            <a href="https://www.jianpian.cn/a/1gvkfyyp" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                <div>
+                    <div class="date">校园文化</div>
+                    <h4>"声动未来 智起新声"——垫江第十中学校校园主持人大赛决赛</h4>
+                </div>
+                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+            </a>
+            <a href="https://www.jianpian.cn/a/1gvg0sz5" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div>
+                    <div class="date">2025-11-20</div>
+                    <h4>热烈祝贺垫江十中师生在全县硬笔书法现场竞赛中斩获佳绩！</h4>
+                </div>
+                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+            </a>
+            <a href="https://www.jianpian.cn/a/1gtajv70" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
+                <div>
+                    <div class="date">2025-11-16</div>
+                    <h4>田径队问鼎县赛之巅，双项纪录再书传奇勇夺第一名</h4>
+                </div>
+                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Bento Box Gallery Section -->
+    <section class="philo-section" id="campus" style="padding: 8rem 0;">
+        <div class="container" style="padding:0 5%;">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+                <span class="subtitle">Campus Aesthetics</span>
+                <h2><span class="zh">校园画廊与风貌</span><span class="en">Visual Gallery</span><span class="tw">校園畫廊</span></h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="bento-gallery">
+                <!-- Large Item (2x2) -->
+                <div class="bento-item large interactive" data-aos="zoom-in" data-aos-duration="1200">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kGmtGHtgwCIyGNrhwLqgYVxrqRj-AAIzEWsbqKVoVUs5IqevoZxtAQADAgADeQADOgQ.png" alt="操场风貌">
+                    <div class="bento-overlay">
+                        <h3><span class="zh">标准化田径运动场</span><span class="en">Standard Track Field</span></h3>
+                    </div>
+                </div>
+                <!-- Tall Item (1x2) -->
+                <div class="bento-item tall interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="150">
+                    <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERhrJprReY3PlnpzGScHq05ZKUdUFwAQACPSAAAlIUaFXeCbXMrrnxQDoE.jpeg" alt="文艺汇演">
+                    <div class="bento-overlay">
+                        <h3><span class="zh">冬季艺术节汇演</span><span class="en">Winter Art Fest</span></h3>
+                    </div>
+                </div>
+                <!-- Standard Item (1x1) -->
+                <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jWmtGBgr7Ot1-_9K32vYIMOAA_MpAAIvEWsbqKVoVZ0uhRFqAAEhVQEAAwIAA3cAAzoE.webp" alt="足球赛">
+                    <div class="bento-overlay">
+                        <h3><span class="zh">全国足球特色校</span><span class="en">Football</span></h3>
+                    </div>
+                </div>
+                <!-- Standard Item (1x1) -->
+                <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="450">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jGmtF-mFGz9Cj5Y0fOo5fDOxGr1WAAItEWsbqKVoVSdL7_nSah5BAQADAgADdwADOgQ.webp" alt="阳光学子">
+                    <div class="bento-overlay">
+                        <h3><span class="zh">阳光学子风貌</span><span class="en">Student Life</span></h3>
+                    </div>
+                </div>
+                <!-- Wide Item (2x1) -->
+                <div class="bento-item wide interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8j2mtGEsZ7rkAAWICG7RRB6hbS-k0DgACMhFrG6ilaFV0RGa--47W9wEAAwIAA3gAAzoE.webp" alt="劳动种植基地">
+                    <div class="bento-overlay">
+                        <h3><span class="zh">“耕读园”劳动教育基地</span><span class="en">Labor & Farming Base</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
+                <span class="subtitle" style="color:#fff; opacity:0.8;">Get In Touch</span>
+                <h2><span class="zh">联系我们</span><span class="en">Contact</span><span class="tw">聯絡我們</span></h2>
+                <div class="line" style="background:var(--secondary-color);"></div>
+            </div>
+            
+            <div class="contact-wrap">
+                <!-- Map Upgraded to Interactive Image -->
+                <div class="map-wrapper interactive" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lmmtISE4XpyxjKPTDpwgVTBMTnNkAAJREWsbqKVoVS98rNQU8kCHAQADAgADeAADOgQ.png" alt="School Map" class="interactive-map">
+                </div>
+                <div class="contact-info" data-aos="fade-left" data-aos-duration="1500">
+                    <ul class="contact-list">
+                        <li class="interactive">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong><span class="zh">地址</span><span class="en">Address</span></strong>
+                                重庆市垫江县桂溪街道渝巫路259号 (邮编: 408300)
+                            </div>
+                        </li>
+                        <li class="interactive">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong><span class="zh">办公室电话</span><span class="en">Office Phone</span></strong>
+                                023-74518864
+                            </div>
+                        </li>
+                        <li class="interactive">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <div>
+                                <strong><span class="zh">事务咨询</span><span class="en">Inquiries</span></strong>
+                                023-74669301 (王老师)
+                            </div>
+                        </li>
+                        <li class="interactive">
+                            <i class="fa-solid fa-at"></i>
+                            <div>
+                                <strong><span class="zh">电子邮箱</span><span class="en">Email</span></strong>
+                                wanglian561@163.com
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" alt="Logo" class="footer-logo interactive">
+        <h2 style="font-family: var(--font-heading);">重庆市垫江县第十中学</h2>
+        <p style="letter-spacing: 4px; text-transform: uppercase; font-size:0.95rem; color: var(--secondary-color);">立德为首 · 五育并举 · 追求卓越</p>
+        
+        <div class="footer-tech">
+            <div class="tech-icons">
+                <i class="fa-brands fa-html5 interactive" title="HTML5"></i>
+                <i class="fa-brands fa-css3-alt interactive" title="CSS3"></i>
+                <i class="fa-brands fa-js interactive" title="JavaScript"></i>
+                <i class="fa-solid fa-universal-access interactive" title="A11y Accessibility"></i>
+            </div>
+            <p style="max-width: 600px; margin: 0 auto; line-height: 1.8; color:rgba(255,255,255,0.4);">
+                本网站采用 <strong>HTML5 & CSS3</strong> 技术构建，注入高级动效与微交互体验。<br>
+                具备无障碍访问（A11y）功能及多语言设计，支持深浅色模式与动态字体调整。
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 垫江十中 版权所有. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // 1. Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 1800); // 确保完整的开场动画时长
+        });
+
+        // 2. Custom Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const interactives = document.querySelectorAll('.interactive, a, button, input');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // 3. Advanced AOS Animation Library Initialization
+        AOS.init({
+            duration: 1200,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            once: true,
+            offset: 100,
+            delay: 100
+        });
+
+        // 4. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 5. Language Toggle System
+        const langs =['zh', 'en', 'tw'];
+        let currentLangIndex = 0;
+        function toggleLanguage() {
+            document.body.classList.remove(`lang-${langs[currentLangIndex]}`);
+            currentLangIndex = (currentLangIndex + 1) % langs.length;
+            document.body.classList.add(`lang-${langs[currentLangIndex]}`);
+        }
+
+        // 6. Dark/Light Theme Toggle
+        const themeBtn = document.getElementById('themeBtn');
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        }
+
+        // 7. Font Size Toggle (A11y)
+        const fontSizes =['16px', '17px', '18px'];
+        let currentFontIndex = 0;
+        function toggleFontSize() {
+            currentFontIndex = (currentFontIndex + 1) % fontSizes.length;
+            document.documentElement.style.setProperty('--font-size-base', fontSizes[currentFontIndex]);
+        }
+
+        // 8. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
