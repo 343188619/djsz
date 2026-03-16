@@ -3,393 +3,359 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <!-- SEO & Metadata Optimization -->
-    <title>重庆市垫江县第十中学 | Dianjiang No.10 Middle School</title>
-    <meta name="description" content="重庆市垫江县第十中学（垫江十中），原凤山中学，首创“三段六环”智慧课堂，全国足球特色学校。秉承“恒德凝命”校训，致力于卓越育人、立德树人，提供优质的公办初中教育。">
+    <!-- SEO 与元数据优化 -->
+    <title>重庆市垫江县第十中学</title>
+    <meta name="description" content="重庆市垫江县第十中学（垫江十中），原凤山中学，首创“三段六环”智慧课堂，全国足球特色学校。秉承“恒德凝命”校训，致力于卓越育人、立德树人。">
     <meta name="keywords" content="垫江十中, 重庆市垫江县第十中学, 凤山中学, 垫江县初中, 智慧课堂, 全国足球特色学校, 恒德凝命">
-    <meta name="author" content="重庆市垫江县第十中学">
-    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph (Social Media Sharing) -->
-    <meta property="og:title" content="重庆市垫江县第十中学 | Dianjiang No.10 Middle School">
-    <meta property="og:description" content="恒德凝命，立德树人。重庆市垫江县第十中学官方网站，了解我们的办学理念、最新动态与校园风貌。">
+    <!-- 社交平台分享优化 (Open Graph) -->
+    <meta property="og:title" content="重庆市垫江县第十中学">
+    <meta property="og:description" content="恒德凝命，立德树人。了解垫江十中的办学理念、最新动态与校园风貌。">
     <meta property="og:image" content="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg">
     <meta property="og:type" content="website">
 
-    <!-- Browser Favicon & Apple Touch Icon -->
+    <!-- 浏览器与苹果设备图标 -->
     <link rel="icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" type="image/jpeg">
-    <link rel="shortcut icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" type="image/jpeg">
     <link rel="apple-touch-icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg">
     
-    <!-- AOS Animation CSS -->
+    <!-- 核心 CSS 库 -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Premium Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Premium Color Palette */
-            --primary-color: #0A192F;      /* 极深邃的海军蓝 */
-            --secondary-color: #D4AF37;    /* 雅致的高级金 */
-            --bg-color: #F8F9FA;           /* 极浅的高级灰白 */
-            --surface-color: #FFFFFF;
-            --text-primary: #111111;
-            --text-secondary: #555555;
-            --border-color: #EAEAEA;
+            /* 国际化高级配色系统 */
+            --primary-color: #111827;      
+            --secondary-color: #CBA557;    
+            --bg-color: #FAFAFA;           
+            --surface-color: #FFFFFF;      
+            --text-primary: #1A1A1A;       
+            --text-secondary: #666666;     
+            --border-color: rgba(0, 0, 0, 0.08);
             --font-size-base: 16px;
-            --nav-bg: rgba(255, 255, 255, 0.7);
-            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.1);
-            --shadow-premium: 0 30px 60px rgba(10, 25, 47, 0.15);
             
-            --font-heading: 'Noto Serif SC', serif;
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-            --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            /* 物理级毛玻璃与阴影 */
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --shadow-light: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            --shadow-premium: 0 30px 60px -15px rgba(17, 24, 39, 0.15);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            
+            /* 原生高端字体栈 */
+            --font-body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft YaHei", sans-serif;
+            --font-number: 'Inter', sans-serif;
+            --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        /* 极致的深色模式 */
         [data-theme="dark"] {
-            --primary-color: #E6F1FF;
-            --secondary-color: #C5A059;
-            --bg-color: #050505;
-            --surface-color: #111111;
-            --text-primary: #F0F0F0;
-            --text-secondary: #A0A0A0;
-            --border-color: #222222;
-            --nav-bg: rgba(5, 5, 5, 0.8);
-            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.6);
-            --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.8);
+            --primary-color: #F8FAFC;
+            --secondary-color: #D4AF37;
+            --bg-color: #0B0F19;
+            --surface-color: #131A2A;
+            --text-primary: #F3F4F6;
+            --text-secondary: #9CA3AF;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(11, 15, 25, 0.85);
+            --shadow-light: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+            --shadow-premium: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: none; /* Hide default cursor for custom one */
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { font-size: var(--font-size-base); scroll-behavior: smooth; }
-
         body {
             font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-primary);
             line-height: 1.8; overflow-x: hidden; -webkit-font-smoothing: antialiased;
             transition: background-color 0.8s ease, color 0.8s ease;
         }
 
-        /* Prevent scroll when modal is open */
         body.modal-open { overflow: hidden; }
-        body.modal-open .cursor-dot, body.modal-open .cursor-outline { display: none !important; }
-
-        /* Language Toggle System */
-        body.lang-en .zh, body.lang-en .tw { display: none !important; }
-        body.lang-zh .en, body.lang-zh .tw { display: none !important; }
-        body.lang-tw .zh, body.lang-tw .en { display: none !important; }
-
-        a, button, .interactive { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+        a, button { text-decoration: none; color: inherit; transition: var(--transition-smooth); cursor: pointer; }
         ul { list-style: none; }
 
-        /* Custom Cursor */
-        .cursor-dot, .cursor-outline {
-            position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000;
-            border-radius: 50%; transform: translate(-50%, -50%); transition: opacity 0.3s ease-in-out;
-        }
-        .cursor-dot { width: 6px; height: 6px; background: var(--secondary-color); }
-        .cursor-outline {
-            width: 40px; height: 40px; border: 1px solid var(--secondary-color);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
-        }
-        .hovering .cursor-outline {
-            width: 70px; height: 70px; background: rgba(212, 175, 55, 0.1); border-color: transparent; backdrop-filter: blur(2px);
-        }
-        .hovering .cursor-dot { transform: translate(-50%, -50%) scale(0.5); }
-
-        @media (max-width: 768px) {
-            * { cursor: auto !important; }
-            .cursor-dot, .cursor-outline { display: none !important; }
-        }
-
-        /* Preloader */
+        /* 电影级加载动画 */
         #preloader {
-            position: fixed; inset: 0; z-index: 99999; background: #0A192F;
+            position: fixed; inset: 0; z-index: 99999; background: #0B0F19;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             transition: opacity 1s ease, visibility 1s ease;
         }
-        .loader-logo-wrap { overflow: hidden; margin-bottom: 20px; }
+        .loader-logo-wrap { overflow: hidden; margin-bottom: 24px; }
         .loader-logo {
-            color: #fff; font-family: var(--font-heading); font-size: 2.5rem; letter-spacing: 5px;
-            transform: translateY(100%); animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            color: #fff; font-family: var(--font-body); font-weight: 600; font-size: 2rem; letter-spacing: 8px;
+            transform: translateY(100%); animation: textReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        .loader-line-wrap { width: 250px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;}
-        .loader-line {
-            width: 0; height: 100%; background: var(--secondary-color);
-            animation: lineLoad 2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
-        }
+        .loader-line-wrap { width: 200px; height: 1px; background: rgba(255,255,255,0.1); overflow: hidden;}
+        .loader-line { width: 0; height: 100%; background: var(--secondary-color); animation: lineLoad 2s cubic-bezier(0.8, 0, 0.2, 1) forwards; }
         @keyframes textReveal { to { transform: translateY(0); } }
         @keyframes lineLoad { 0% { width: 0; } 50% { width: 60%; } 100% { width: 100%; } }
         body.loaded #preloader { opacity: 0; visibility: hidden; pointer-events: none; }
 
-        /* Headers */
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
-
+        /* 排版系统 */
+        h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; }
         .section-header { text-align: center; margin-bottom: 5rem; position: relative; }
         .section-header .subtitle {
-            display: inline-block; font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 6px; color: var(--secondary-color); margin-bottom: 1rem;
+            display: inline-block; font-size: 0.85rem; text-transform: uppercase; font-weight: 500;
+            letter-spacing: 8px; color: var(--secondary-color); margin-bottom: 1rem;
             transform: translateY(20px); opacity: 0; animation: fadeUpIn 0.8s forwards 0.2s;
         }
-        .section-header h2 { font-size: 3rem; color: var(--text-primary); margin-bottom: 1.5rem; }
-        .section-header .line { width: 80px; height: 2px; background-color: var(--secondary-color); margin: 0 auto; transition: width 0.5s; }
-        .section-header:hover .line { width: 120px; }
+        .section-header h2 { font-size: 2.8rem; color: var(--text-primary); margin-bottom: 1.5rem; font-weight: 600; letter-spacing: 2px; }
+        .section-header .line { width: 40px; height: 2px; background-color: var(--secondary-color); margin: 0 auto; transition: width 0.5s; }
+        .section-header:hover .line { width: 80px; }
 
-        /* Navbar */
+        /* 高级毛玻璃导航栏 */
         .navbar {
             position: fixed; top: 0; width: 100%; height: 90px;
-            background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
-            border-bottom: 1px solid rgba(128,128,128,0.1);
-            transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease;
+            background: transparent; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0 5%;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .navbar.scrolled { height: 70px; background: var(--surface-color); box-shadow: var(--shadow-light); }
+        .navbar.scrolled { 
+            height: 70px; background: var(--nav-bg); 
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-light); border-bottom: 1px solid var(--border-color);
+        }
         .nav-brand { display: flex; align-items: center; gap: 15px; }
         .nav-brand img { height: 45px; border-radius: 50%; transition: transform 0.5s; }
         .nav-brand:hover img { transform: rotate(360deg); }
-        .nav-brand h1 { font-size: 1.4rem; color: var(--text-primary); letter-spacing: 2px; margin: 0; }
+        .nav-brand h1 { font-size: 1.3rem; color: #fff; letter-spacing: 2px; font-weight: 500; transition: color 0.5s; }
+        .navbar.scrolled .nav-brand h1 { color: var(--text-primary); }
 
         .nav-links { display: flex; gap: 3rem; }
-        .nav-links a { font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; color: var(--text-primary); position: relative; padding-bottom: 5px; }
-        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: #fff; position: relative; padding-bottom: 5px; transition: color 0.5s; }
+        .navbar.scrolled .nav-links a { color: var(--text-primary); }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
         .nav-links a:hover::after { width: 100%; }
 
         .toolbar { display: flex; gap: 1rem; }
         .tool-btn {
-            background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);
-            width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
+            background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff;
+            width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s; position: relative; overflow: hidden; outline: none;
         }
-        .tool-btn::before {
-            content: ''; position: absolute; inset: 0; background: var(--secondary-color);
-            border-radius: 50%; transform: scale(0); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1;
-        }
+        .navbar.scrolled .tool-btn { border-color: var(--border-color); color: var(--text-primary); }
+        .tool-btn::before { content: ''; position: absolute; inset: 0; background: var(--secondary-color); border-radius: 50%; transform: scale(0); transition: transform 0.4s; z-index: -1; }
         .tool-btn:hover { border-color: var(--secondary-color); color: #fff; }
         .tool-btn:hover::before { transform: scale(1); }
 
-        /* Hero Section with Video Background */
-        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; }
-        .hero-bg {
-            position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
-            /* Fallback Background Image */
-            background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lWmtHwy9_5yKfPO05JQ4z0pZfUrdAAJIEWsbqKVoVYSBMDWmGl7kAQADAgADeAADOgQ.jpg') center/cover no-repeat;
-            animation: cinematicZoom 25s infinite alternate ease-in-out; z-index: 1;
+        /* -------------------------------------------
+           重点：彻底无图片的强力动态视频背景区域
+           ------------------------------------------- */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background-color: #05080E; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        
+        .hero-video { 
+            width: 100%; height: 100%; object-fit: cover; object-position: center; 
+            position: absolute; top: 0; left: 0; z-index: 2; opacity: 0; transition: opacity 1s ease;
         }
-        .hero-video {
-            width: 100%; height: 100%; object-fit: cover;
-            position: absolute; top: 0; left: 0; border: none; z-index: 1;
+        /* 当视频成功播放时，提升透明度 */
+        .hero-video.playing { opacity: 1; }
+        
+        .video-status { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            color: rgba(255,255,255,0.6); font-size: 1rem; z-index: 1; letter-spacing: 2px; font-weight: 300;
         }
+        
         .hero-overlay {
-            position: absolute; inset: 0; z-index: 2;
-            background: linear-gradient(180deg, rgba(10,25,47,0.4) 0%, rgba(10,25,47,0.85) 100%);
-            mix-blend-mode: multiply;
+            position: absolute; inset: 0; z-index: 3;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(10,25,47,0.8) 100%);
+            pointer-events: none;
         }
-        .hero-content { position: relative; z-index: 3; padding: 0 20px; }
+        .hero-content { position: relative; z-index: 4; padding: 0 20px; color: #fff; }
         .hero-content h1 {
-            font-size: 5rem; letter-spacing: 8px; margin-bottom: 1.5rem; text-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            font-weight: 900; background: linear-gradient(to right, #fff, #e0e0e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 4.5rem; letter-spacing: 12px; margin-bottom: 1.5rem; font-weight: 600; text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .hero-content p {
-            font-family: var(--font-body); font-size: 1.3rem; font-weight: 400; letter-spacing: 12px;
-            color: var(--secondary-color); text-transform: uppercase; text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+            font-size: 1.3rem; font-weight: 300; letter-spacing: 12px; color: var(--secondary-color); text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
         .scroll-down {
-            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; color: #fff; font-size: 1.8rem;
-            animation: bounce 2s infinite; opacity: 0.8; transition: opacity 0.3s;
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 4; color: #fff; font-size: 1.5rem;
+            animation: bounce 2s infinite; opacity: 0.6; transition: opacity 0.3s;
         }
         .scroll-down:hover { opacity: 1; color: var(--secondary-color); }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);} 40% {transform: translateY(-15px) translateX(-50%);} 60% {transform: translateY(-7px) translateX(-50%);} }
 
-        @keyframes cinematicZoom { from { transform: scale(1); } to { transform: scale(1.15); } }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);} 40% {transform: translateY(-20px) translateX(-50%);} 60% {transform: translateY(-10px) translateX(-50%);} }
+        .container { max-width: 1400px; margin: 0 auto; padding: 8rem 5%; }
 
-        .container { max-width: 1500px; margin: 0 auto; padding: 8rem 5%; }
-
-        /* Stats */
-        .stats-wrap { position: relative; z-index: 10; margin-top: -80px; padding: 0 5%; }
+        /* 高级数据面板 */
+        .stats-wrap { position: relative; z-index: 10; margin-top: -100px; padding: 0 5%; max-width: 1500px; margin-left: auto; margin-right: auto;}
         .stats-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
-            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border-radius: 24px; box-shadow: var(--shadow-premium);
-            border: 1px solid rgba(255,255,255,0.8); padding: 4rem 0; overflow: hidden; position: relative;
+            background: var(--nav-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-premium);
+            border: 1px solid var(--border-color); padding: 4rem 0; overflow: hidden;
         }
-        [data-theme="dark"] .stats-grid { background: rgba(20, 20, 20, 0.6); border-color: rgba(255,255,255,0.1); }
         .stat-item { text-align: center; border-right: 1px solid var(--border-color); transition: transform 0.4s; }
         .stat-item:hover { transform: translateY(-5px); }
         .stat-item:last-child { border-right: none; }
-        .stat-item h3 { font-size: 3.5rem; color: var(--primary-color); margin-bottom: 0.5rem; font-family: var(--font-body); font-weight: 300; line-height: 1; }
-        .stat-item p { font-size: 0.95rem; color: var(--text-secondary); letter-spacing: 3px; text-transform: uppercase; font-weight: 500;}
+        .stat-item h3 { font-family: var(--font-number); font-size: 3.8rem; font-weight: 200; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1; }
+        .stat-item p { font-size: 0.95rem; color: var(--text-secondary); letter-spacing: 4px; font-weight: 500; }
 
-        /* About Section */
-        .about-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 8rem; align-items: center; }
-        .about-text h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; position: relative; }
-        .about-text p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.8rem; text-align: justify; line-height: 2; }
-        .about-img-wrap { position: relative; perspective: 1000px; }
-        .about-img-bg { position: absolute; top: -30px; left: -30px; width: 100%; height: 100%; border: 2px solid var(--secondary-color); border-radius: 24px; z-index: 0; transition: var(--transition-smooth); }
-        .about-img { position: relative; z-index: 1; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-premium); transition: var(--transition-smooth); }
-        .about-img img { width: 100%; display: block; filter: grayscale(20%); transition: var(--transition-smooth); transform: scale(1.02); }
-        .about-img-wrap:hover .about-img { transform: rotateY(-5deg) rotateX(5deg); }
-        .about-img-wrap:hover .about-img-bg { transform: translate(15px, 15px); }
+        /* 学校概况 */
+        .about-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 6rem; align-items: center; }
+        .about-text h3 { font-size: 2.2rem; color: var(--text-primary); margin-bottom: 2rem; font-weight: 600; letter-spacing: 2px;}
+        .about-text p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.8rem; text-align: justify; line-height: 2; font-weight: 300;}
+        .about-img-wrap { position: relative; }
+        .about-img-bg { position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; border: 1px solid var(--secondary-color); border-radius: var(--radius-lg); z-index: 0; transition: var(--transition-smooth); }
+        .about-img { position: relative; z-index: 1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-premium); transition: var(--transition-smooth); }
+        .about-img img { width: 100%; display: block; filter: grayscale(10%); transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .about-img-wrap:hover .about-img-bg { transform: translate(10px, 10px); }
         .about-img-wrap:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
-        /* Philosophy Section */
-        .philo-section { background-color: var(--surface-color); position: relative; padding: 6rem 0; }
-        .philo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-        .philo-card { padding: 4rem 2rem; background: var(--bg-color); border-radius: 20px; text-align: center; transition: var(--transition-smooth); border: 1px solid transparent; position: relative; overflow: hidden; z-index: 1; }
-        .philo-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0%; background: linear-gradient(180deg, var(--secondary-color) 0%, transparent 100%); opacity: 0.05; z-index: -1; transition: height 0.6s ease; }
-        .philo-card:hover { transform: translateY(-20px); border-color: var(--secondary-color); box-shadow: var(--shadow-premium); }
-        .philo-card:hover::after { height: 100%; }
-        .philo-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 2rem; transition: transform 0.4s; }
-        .philo-card:hover i { transform: scale(1.2) rotate(10deg); }
-        .philo-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
-        .philo-card p { font-size: 1rem; color: var(--text-secondary); }
+        /* 办学理念卡片 */
+        .philo-section { background-color: var(--surface-color); padding: 8rem 0; }
+        .philo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .philo-card { 
+            padding: 4rem 2rem; background: var(--bg-color); border-radius: var(--radius-lg); 
+            text-align: center; transition: var(--transition-smooth); border: 1px solid var(--border-color); 
+        }
+        .philo-card:hover { transform: translateY(-15px); border-color: var(--secondary-color); box-shadow: var(--shadow-hover); background: var(--surface-color);}
+        .philo-card i { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 2rem; transition: transform 0.4s; }
+        .philo-card:hover i { transform: scale(1.1); }
+        .philo-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary); letter-spacing: 1px; }
+        .philo-card p { font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; line-height: 1.8; }
 
-        /* Editorial News Section */
-        .news-editorial { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-bottom: 5rem; }
-        .news-featured { position: relative; border-radius: 24px; overflow: hidden; height: 550px; box-shadow: var(--shadow-premium); display: flex; align-items: flex-end; background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp') center/cover; transition: var(--transition-smooth); }
-        .news-featured::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #0A192F 0%, transparent 70%); transition: opacity 0.5s; }
-        .news-featured:hover { transform: scale(1.02); }
-        .news-featured:hover::before { opacity: 0.8; }
-        .news-featured-content { position: relative; z-index: 2; padding: 4rem 3rem; color: #fff; width: 100%; transition: transform 0.5s; }
-        .news-featured:hover .news-featured-content { transform: translateY(-10px); }
-        .news-tag { display: inline-block; padding: 6px 16px; background: var(--secondary-color); color: #fff; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; margin-bottom: 1.5rem; }
-        .news-featured-content h3 { font-size: 2.2rem; margin-bottom: 1rem; }
+        /* 新闻板块 */
+        .news-editorial { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .news-featured { 
+            position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 500px; 
+            box-shadow: var(--shadow-light); display: flex; align-items: flex-end; 
+            background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp') center/cover; 
+            transition: var(--transition-smooth); 
+        }
+        .news-featured::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); transition: opacity 0.5s; }
+        .news-featured:hover { box-shadow: var(--shadow-hover); }
+        .news-featured-content { position: relative; z-index: 2; padding: 3rem; color: #fff; width: 100%; transition: transform 0.5s; }
+        .news-featured:hover .news-featured-content { transform: translateY(-5px); }
+        .news-tag { display: inline-block; padding: 6px 14px; background: var(--secondary-color); color: #fff; font-size: 0.8rem; letter-spacing: 2px; border-radius: 50px; margin-bottom: 1rem; }
+        .news-featured-content h3 { font-size: 2rem; margin-bottom: 0.8rem; line-height: 1.4; font-weight: 500;}
         
-        .news-list { display: flex; flex-direction: column; justify-content: space-between; height: 550px;}
-        .news-list-item { display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; padding-top: 1rem; transition: var(--transition-smooth); position: relative; }
-        .news-list-item::before { content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%); width: 4px; height: 0; background: var(--secondary-color); transition: height 0.4s; }
-        .news-list-item:hover { transform: translateX(20px); border-color: transparent; }
-        .news-list-item:hover::before { height: 70%; }
-        .news-list-item:last-child { border-bottom: none; }
-        .news-list-item .date { font-family: var(--font-body); font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 1px; }
-        .news-list-item h4 { font-size: 1.3rem; color: var(--text-primary); transition: color 0.3s; line-height: 1.5; }
+        .news-list { display: flex; flex-direction: column; justify-content: space-between; height: 500px; padding-left: 1rem;}
+        .news-list-item { display: block; padding: 1.5rem 0; border-bottom: 1px solid var(--border-color); transition: var(--transition-smooth); position: relative; }
+        .news-list-item:first-child { padding-top: 0; }
+        .news-list-item:last-child { border-bottom: none; padding-bottom: 0;}
+        .news-list-item::before { content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%); width: 3px; height: 0; background: var(--secondary-color); transition: height 0.3s; }
+        .news-list-item:hover { transform: translateX(15px); }
+        .news-list-item:hover::before { height: 60%; }
+        .news-list-item .date { font-family: var(--font-number); font-size: 0.85rem; color: var(--secondary-color); margin-bottom: 0.5rem; font-weight: 500; letter-spacing: 1px; }
+        .news-list-item h4 { font-size: 1.25rem; color: var(--text-primary); font-weight: 500; line-height: 1.5; }
 
-        .news-grid-bottom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-        .news-card { background: var(--surface-color); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border-color); transition: var(--transition-smooth); display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .news-card:hover { box-shadow: var(--shadow-hover); border-color: var(--secondary-color); transform: translateY(-10px); }
-        .news-card .date { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
-        .news-card h4 { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; }
-        .read-more { font-size: 0.9rem; font-weight: 600; color: var(--primary-color); display: flex; align-items: center; gap: 8px; text-transform: uppercase; transition: color 0.3s; }
-        .read-more i { transition: transform 0.3s; }
+        .news-grid-bottom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .news-card { background: var(--surface-color); border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-color); transition: var(--transition-smooth); display: flex; flex-direction: column; justify-content: space-between; }
+        .news-card:hover { box-shadow: var(--shadow-hover); border-color: rgba(0,0,0,0.15); transform: translateY(-8px); }
+        [data-theme="dark"] .news-card:hover { border-color: rgba(255,255,255,0.2); }
+        .news-card .date { font-family: var(--font-number); font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.2rem; }
+        .news-card h4 { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; }
+        .read-more { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+        .read-more i { transition: transform 0.3s; font-size: 0.8rem; }
         .news-card:hover .read-more { color: var(--secondary-color); }
-        .news-card:hover .read-more i { transform: translateX(5px); }
+        .news-card:hover .read-more i { transform: translateX(6px); }
 
-        /* ---------------- Modal (Iframe News Embed) ---------------- */
+        /* 新闻内嵌弹窗 */
         .news-modal {
             display: none; position: fixed; inset: 0; z-index: 100000;
-            background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;
         }
         .news-modal.show { opacity: 1; display: flex; }
         .news-modal-content {
-            width: 90%; max-width: 1200px; height: 85vh;
-            background: var(--bg-color); border-radius: 20px; overflow: hidden;
-            box-shadow: var(--shadow-premium); transform: scale(0.95) translateY(20px);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 92%; max-width: 1100px; height: 85vh;
+            background: var(--surface-color); border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4); transform: scale(0.95) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             display: flex; flex-direction: column; border: 1px solid var(--border-color);
         }
         .news-modal.show .news-modal-content { transform: scale(1) translateY(0); }
         .news-modal-header {
-            height: 65px; background: var(--surface-color); display: flex; align-items: center; justify-content: space-between;
+            height: 60px; background: var(--bg-color); display: flex; align-items: center; justify-content: space-between;
             padding: 0 1.5rem; border-bottom: 1px solid var(--border-color);
         }
-        .news-modal-header h3 { font-size: 1.1rem; color: var(--text-primary); margin: 0; font-family: var(--font-body); font-weight: 600; }
+        .news-modal-header h3 { font-size: 1rem; color: var(--text-primary); margin: 0; font-weight: 500; letter-spacing: 1px; }
         .news-modal-close {
-            width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: var(--bg-color); color: var(--text-primary); font-size: 1.2rem; cursor: pointer;
-            transition: all 0.3s; border: 1px solid var(--border-color);
+            width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            background: var(--surface-color); color: var(--text-secondary); font-size: 1.1rem; border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
-        .news-modal-close:hover { background: #ff4757; color: #fff; border-color: #ff4757; transform: rotate(90deg); }
+        .news-modal-close:hover { background: #E5E7EB; color: #111; transform: rotate(90deg); }[data-theme="dark"] .news-modal-close:hover { background: #374151; color: #fff; }
         .news-iframe-wrap { flex: 1; position: relative; background: var(--bg-color); }
         .news-iframe-loader {
             position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: var(--secondary-color); font-size: 2rem; z-index: 1; gap: 15px;
+            color: var(--secondary-color); font-size: 1.5rem; z-index: 1; gap: 15px;
         }
-        .news-iframe-loader span { font-size: 0.9rem; font-family: var(--font-body); letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase; }
+        .news-iframe-loader span { font-size: 0.85rem; letter-spacing: 2px; color: var(--text-secondary); }
         #newsIframe { width: 100%; height: 100%; border: none; position: relative; z-index: 2; background: transparent; }
-        /* ----------------------------------------------------------- */
 
-        /* Bento Box Gallery */
-        .bento-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 320px; gap: 1.5rem; }
-        .bento-item { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-light); transition: var(--transition-smooth); }
+        /* 便当盒网格画廊 */
+        .bento-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 1.5rem; }
+        .bento-item { position: relative; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-light); transition: var(--transition-smooth); }
         .bento-item.large { grid-column: span 2; grid-row: span 2; }
         .bento-item.wide { grid-column: span 2; grid-row: span 1; }
         .bento-item.tall { grid-column: span 1; grid-row: span 2; }
-        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9); }
-        .bento-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 2.5rem; opacity: 0; transition: var(--transition-smooth); }
-        .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
-        .bento-item:hover img { transform: scale(1.1); filter: brightness(1); }
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); filter: brightness(0.95); }
+        .bento-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); display: flex; align-items: flex-end; padding: 2rem; opacity: 0; transition: var(--transition-smooth); }
+        .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .bento-item:hover img { transform: scale(1.08); filter: brightness(1); }
         .bento-item:hover .bento-overlay { opacity: 1; }
-        .bento-overlay h3 { color: #fff; font-size: 1.5rem; transform: translateY(20px); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bento-overlay h3 { color: #fff; font-size: 1.3rem; font-weight: 500; transform: translateY(15px); transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); letter-spacing: 1px;}
         .bento-item:hover .bento-overlay h3 { transform: translateY(0); }
 
-        /* Contact Section */
-        .contact-section { background: var(--primary-color); color: #fff; padding: 8rem 0; position: relative; overflow: hidden; }
-        .contact-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%); pointer-events: none; }
+        /* 联系方式模块 */
+        .contact-section { background: #0B0F19; color: #fff; padding: 8rem 0; position: relative; overflow: hidden; }
+        .contact-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(203,165,87,0.05) 0%, transparent 50%); pointer-events: none; }
         .contact-section .section-header h2 { color: #fff; }
-        .contact-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; }
-        .map-wrapper { border-radius: 24px; overflow: hidden; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.3); transition: var(--transition-smooth); }
-        .map-wrapper:hover { transform: translateY(-10px); border-color: rgba(212,175,55,0.5); }
-        .interactive-map { width: 100%; height: 500px; border-radius: 16px; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9); }
-        .map-wrapper:hover .interactive-map { transform: scale(1.05); filter: brightness(1.05); }
-        .contact-list li { display: flex; align-items: flex-start; gap: 1.8rem; margin-bottom: 2.5rem; font-size: 1.15rem; color: rgba(255,255,255,0.7); transition: transform 0.3s; }
+        .contact-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 2; }
+        .map-wrapper { border-radius: var(--radius-lg); overflow: hidden; padding: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 40px 80px rgba(0,0,0,0.5); transition: var(--transition-smooth); }
+        .map-wrapper:hover { transform: translateY(-10px); border-color: rgba(203,165,87,0.3); }
+        .interactive-map { width: 100%; height: 450px; border-radius: var(--radius-md); object-fit: cover; transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); filter: brightness(0.85); }
+        .map-wrapper:hover .interactive-map { transform: scale(1.03); filter: brightness(1); }
+        .contact-list li { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2.5rem; font-size: 1.05rem; color: rgba(255,255,255,0.6); transition: transform 0.3s; font-weight: 300; }
         .contact-list li:hover { transform: translateX(10px); color: #fff; }
-        .contact-list i { font-size: 1.8rem; color: var(--secondary-color); margin-top: 5px; }
-        .contact-list strong { color: #fff; font-family: var(--font-heading); font-size: 1.3rem; display: block; margin-bottom: 8px; letter-spacing: 1px;}
+        .contact-list i { font-size: 1.5rem; color: var(--secondary-color); margin-top: 4px; }
+        .contact-list strong { color: #fff; font-size: 1.2rem; display: block; margin-bottom: 6px; font-weight: 500; letter-spacing: 1px;}
 
-        /* Footer */
-        .footer { background: #050B14; color: rgba(255,255,255,0.5); padding: 5rem 5% 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
-        .footer-logo { height: 70px; border-radius: 50%; margin-bottom: 2rem; opacity: 0.9; transition: transform 0.5s; }
-        .footer-logo:hover { transform: scale(1.1); }
-        .footer h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
-        .footer-tech { margin-top: 5rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--font-body); font-size: 0.9rem; }
-        .tech-icons { display: flex; justify-content: center; gap: 25px; font-size: 1.8rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.3); }
+        /* 页脚 */
+        .footer { background: #05080E; color: rgba(255,255,255,0.4); padding: 5rem 5% 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-logo { height: 60px; border-radius: 50%; margin-bottom: 2rem; opacity: 0.8; transition: transform 0.5s; }
+        .footer-logo:hover { transform: scale(1.1); opacity: 1;}
+        .footer h2 { color: #fff; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 500; letter-spacing: 2px;}
+        .footer-tech { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; font-weight: 300; }
+        .tech-icons { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-bottom: 1.5rem; color: rgba(255,255,255,0.2); }
         .tech-icons i:hover { color: var(--secondary-color); transition: 0.3s; }
 
-        /* Mobile Adjustments */
-        .mobile-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--text-primary); }
+        /* 移动端自适应 */
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; transition: color 0.3s; }
+        .navbar.scrolled .mobile-toggle { color: var(--text-primary); }
         @media (max-width: 1024px) {
             .about-grid, .news-editorial, .contact-wrap { grid-template-columns: 1fr; }
             .stats-grid, .philo-grid, .news-grid-bottom, .bento-gallery { grid-template-columns: repeat(2, 1fr); }
             .bento-item.large, .bento-item.wide, .bento-item.tall { grid-column: span 2; grid-row: span 1; }
             .news-featured { height: 400px; }
-            .news-list { height: auto; gap: 2rem; margin-top: 2rem;}
+            .news-list { height: auto; gap: 2rem; margin-top: 2rem; padding-left: 0;}
         }
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
-                background: var(--surface-color); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                background: var(--surface-color); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; transition: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             }
+            .navbar.scrolled .nav-links a { color: var(--text-primary); }
+            .nav-links a { color: var(--text-primary); font-size: 1.2rem; }
             .nav-links.active { left: 0; }
             .mobile-toggle { display: block; }
             .stats-grid, .philo-grid, .news-grid-bottom, .bento-gallery { grid-template-columns: 1fr; }
             .bento-item.large, .bento-item.wide, .bento-item.tall { grid-column: span 1; }
-            .hero-content h1 { font-size: 3rem; }
-            .stat-item { border-right: none; border-bottom: 1px solid var(--border-color); padding: 2rem 0; }
+            .hero-content h1 { font-size: 3rem; letter-spacing: 6px; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--border-color); padding: 2.5rem 0; }
             .stat-item:last-child { border-bottom: none; }
         }
     </style>
 </head>
-<body class="lang-zh" id="top">
+<body id="top">
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
-    <!-- Cinematic Preloader -->
+    <!-- 加载页面动画 -->
     <div id="preloader">
         <div class="loader-logo-wrap">
             <div class="loader-logo">DIANJIANG NO.10</div>
@@ -399,179 +365,157 @@
         </div>
     </div>
 
-    <!-- Navbar -->
+    <!-- 导航栏 -->
     <nav class="navbar" id="navbar">
-        <div class="nav-brand interactive">
+        <div class="nav-brand">
             <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" alt="Logo">
-            <div>
-                <h1 class="zh">垫江第十中学校</h1>
-                <h1 class="en">Dianjiang No.10</h1>
-                <h1 class="tw">墊江第十中學校</h1>
-            </div>
+            <div><h1>垫江第十中学校</h1></div>
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="#top" class="interactive"><span class="zh">首页</span><span class="en">Home</span><span class="tw">首頁</span></a></li>
-            <li><a href="#about" class="interactive"><span class="zh">学校概况</span><span class="en">About</span><span class="tw">學校概況</span></a></li>
-            <li><a href="#culture" class="interactive"><span class="zh">办学理念</span><span class="en">Philosophy</span><span class="tw">辦學理念</span></a></li>
-            <li><a href="#news" class="interactive"><span class="zh">最新动态</span><span class="en">Editorial</span><span class="tw">最新動態</span></a></li>
-            <li><a href="#campus" class="interactive"><span class="zh">校园画廊</span><span class="en">Gallery</span><span class="tw">校園畫廊</span></a></li>
-            <li><a href="#contact" class="interactive"><span class="zh">联系我们</span><span class="en">Contact</span><span class="tw">聯絡我們</span></a></li>
+            <li><a href="#top">首页</a></li>
+            <li><a href="#about">学校概况</a></li>
+            <li><a href="#culture">办学理念</a></li>
+            <li><a href="#news">新闻动态</a></li>
+            <li><a href="#campus">校园风貌</a></li>
+            <li><a href="#contact">联系我们</a></li>
         </ul>
 
         <div class="toolbar">
-            <button class="tool-btn interactive" onclick="toggleFontSize()" aria-label="A11y Typography"><i class="fa-solid fa-text-height"></i></button>
-            <button class="tool-btn interactive" onclick="toggleTheme()" id="themeBtn" aria-label="Theme"><i class="fa-solid fa-moon"></i></button>
-            <button class="tool-btn interactive" onclick="toggleLanguage()" aria-label="Language"><i class="fa-solid fa-globe"></i></button>
-            <i class="fa-solid fa-bars mobile-toggle interactive" onclick="toggleMobileMenu()"></i>
+            <button class="tool-btn" onclick="toggleFontSize()" aria-label="调整字号"><i class="fa-solid fa-text-height"></i></button>
+            <button class="tool-btn" onclick="toggleTheme()" id="themeBtn" aria-label="切换主题"><i class="fa-solid fa-moon"></i></button>
+            <i class="fa-solid fa-bars mobile-toggle" onclick="toggleMobileMenu()"></i>
         </div>
     </nav>
 
-    <!-- Hero Cinematic Section (With Dynamic Video Background) -->
+    <!-- 主视觉区：纯动态视频背景 -->
     <section class="hero">
         <div class="hero-bg">
-            <!-- 视频背景：若加载失败，外层 div 的背景图片和这里的 poster 封面图起完美回退作用 -->
-            <video autoplay loop muted playsinline class="hero-video" poster="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lWmtHwy9_5yKfPO05JQ4z0pZfUrdAAJIEWsbqKVoVYSBMDWmGl7kAQADAgADeAADOgQ.jpg">
-                <source src="https://img.yohuo.eu.org/1773644803175.mp4" type="video/mp4">
+            <!-- 增加全套移动端与微信 X5 内核视频直播兼容属性 -->
+            <video id="heroVideo" class="hero-video" autoplay loop muted playsinline webkit-playsinline x5-video-player-type="h5">
+                <!-- 您的原视频链接 -->
+                <source src="https://default-uqewhjj.cdn.7caiyun.com/3%E6%9C%8816%E6%97%A5%20(1).mp4">
             </video>
+            <!-- 若您提供视频直链加载失败或被浏览器拦截，将显示下方红色文字 -->
+            <div id="videoStatus" class="video-status">
+                <i class="fa-solid fa-circle-notch fa-spin" style="margin-right: 8px;"></i> 正在加载动态视频...
+            </div>
         </div>
+        
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="zh" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">重庆市垫江县第十中学</h1>
-            <h1 class="en" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Dianjiang No.10 Middle School</h1>
-            <h1 class="tw" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">重慶市墊江縣第十中學</h1>
-            
-            <p class="zh" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">恒德凝命 · 立德树人</p>
-            <p class="en" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">Constant Virtue · Shaping Destinies</p>
-            <p class="tw" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">恒德凝命 · 立德樹人</p>
+            <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">重庆市垫江县第十中学</h1>
+            <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">恒德凝命 · 立德树人</p>
         </div>
-        <a href="#stats" class="scroll-down interactive"><i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#stats" class="scroll-down"><i class="fa-solid fa-chevron-down"></i></a>
     </section>
 
-    <!-- Glassmorphism Stats -->
+    <!-- 高级数据面板 -->
     <div class="stats-wrap" id="stats">
         <div class="stats-grid" data-aos="fade-up" data-aos-duration="1200" data-aos-offset="0">
-            <div class="stat-item interactive">
-                <h3>3005</h3>
-                <p><span class="zh">在校生</span><span class="en">Students</span><span class="tw">在校生</span></p>
+            <div class="stat-item">
+                <h3>3005</h3><p>在校学生</p>
             </div>
-            <div class="stat-item interactive">
-                <h3>66</h3>
-                <p><span class="zh">教学班级</span><span class="en">Classes</span><span class="tw">教學班級</span></p>
+            <div class="stat-item">
+                <h3>66</h3><p>教学班级</p>
             </div>
-            <div class="stat-item interactive">
-                <h3>30<span style="font-size:1.5rem">亩</span></h3>
-                <p><span class="zh">耕读园</span><span class="en">Labor Base</span><span class="tw">耕讀園</span></p>
+            <div class="stat-item">
+                <h3>30<span style="font-size:1.5rem; font-weight:400;">亩</span></h3><p>耕读园基地</p>
             </div>
-            <div class="stat-item interactive">
-                <h3 style="font-size:2.2rem; line-height:3.5rem;"><span class="zh">全国</span><span class="en">National</span><span class="tw">全國</span></h3>
-                <p><span class="zh">足球特色校</span><span class="en">Football Sch.</span><span class="tw">足球特色校</span></p>
+            <div class="stat-item">
+                <h3 style="font-size:2.2rem; line-height:3.8rem; font-family: var(--font-body); font-weight:400;">全国级</h3><p>足球特色名校</p>
             </div>
         </div>
     </div>
 
-    <!-- About Section -->
+    <!-- 学校概况 -->
     <section class="container" id="about">
-        <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-            <span class="subtitle">History & Vision</span>
-            <h2><span class="zh">学校概况</span><span class="en">About The School</span><span class="tw">學校概況</span></h2>
+        <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+            <span class="subtitle">历史与愿景</span>
+            <h2>学校概况与发展历程</h2>
             <div class="line"></div>
         </div>
         
         <div class="about-grid">
-            <div class="about-img-wrap interactive" data-aos="fade-right" data-aos-duration="1500">
+            <div class="about-img-wrap" data-aos="fade-right" data-aos-duration="1200">
                 <div class="about-img-bg"></div>
                 <div class="about-img">
-                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png" alt="Campus">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png" alt="校园风貌">
                 </div>
             </div>
-            <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-                <h3>
-                    <span class="zh">厚重使命 · 卓越育人</span>
-                    <span class="en">A Legacy of Excellence</span>
-                    <span class="tw">厚重使命 · 卓越育人</span>
-                </h3>
-                <p class="zh">重庆市垫江第十中学校位于桂溪街道渝巫路259号，是一所由垫江县教育委员会直接举办的公办初中。学校前身为“凤山中学”，2016年迁至现址，2018年正式更名。开办资金达5843万元，以雄厚的实力为学生终身发展奠基。</p>
-                <p class="en">Located at No. 259 Yuwu Road, Dianjiang No.10 Middle School is a premier public junior high with a funding of 58.43 million RMB. Moving to its modern campus in 2016, the school is committed to high-quality compulsory education and deep learning.</p>
-                <p class="tw">重慶市墊江第十中學校位於渝巫路259號，前身為鳳山中學。2016年遷至現址，開辦資金達5843萬元，以雄厚的實力為學生終身發展奠基。</p>
-                
-                <p class="zh">我们首创“三段六环—小组合作”智慧课堂，构建“四季四节”主题活动（春体、夏劳、秋科、冬艺）。如今，垫江十中已成为全县小学生的理想殿堂，向党和人民交出满意的立德树人答卷。</p>
-                <p class="en">We pioneer the "Smart Classroom" model and the "Four Seasons, Four Festivals" holistic education system. Today, we stand as a top choice for primary graduates in the region, pursuing ultimate educational excellence.</p>
-                <p class="tw">我們首創“三段六環”智慧課堂，構建“四季四節”主題活動。如今，墊江十中已成為全縣學子的理想殿堂，追求卓越育人。</p>
+            <div class="about-text" data-aos="fade-left" data-aos-duration="1200">
+                <h3>厚重使命 · 卓越育人</h3>
+                <p>重庆市垫江第十中学校位于桂溪街道渝巫路259号，是一所由垫江县教育委员会直接举办的公办初中。学校前身为“凤山中学”，2016年迁至现址，2018年正式更名。开办资金达5843万元，以极其雄厚的软硬件实力为每一位学生的终身发展奠基。</p>
+                <p>我们首创“三段六环—小组合作”智慧课堂，构建了“四季四节”特色主题教育活动（春季体育、夏季劳作、秋季科创、冬季艺术）。如今，垫江十中已成为全县莘莘学子的理想殿堂，向党和人民交出了一份满意的立德树人答卷。</p>
             </div>
         </div>
     </section>
 
-    <!-- Philosophy Section -->
+    <!-- 办学理念 -->
     <section class="philo-section" id="culture">
         <div class="container">
-            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-                <span class="subtitle">Core Philosophy</span>
-                <h2><span class="zh">办学理念</span><span class="en">Philosophy</span><span class="tw">辦學理念</span></h2>
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <span class="subtitle">核心价值观</span>
+                <h2>办学理念与精神图腾</h2>
                 <div class="line"></div>
             </div>
             
             <div class="philo-grid">
-                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                <div class="philo-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
                     <i class="fa-solid fa-leaf"></i>
-                    <h3><span class="zh">校训：恒德凝命</span><span class="en">Motto</span></h3>
-                    <p class="zh">永恒不变的道德操守是凝聚生命力量、实现人生价值的根基。</p>
-                    <p class="en">Eternal moral integrity is the foundation of life's value.</p>
+                    <h3>校训：恒德凝命</h3>
+                    <p>永恒不变的道德操守，是凝聚生命力量、实现人生最高价值的坚固根基。</p>
                 </div>
-                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                <div class="philo-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
                     <i class="fa-solid fa-scale-balanced"></i>
-                    <h3><span class="zh">核心：立德 成己 达人</span><span class="en">Core Values</span></h3>
-                    <p class="zh">修养品德，成就自我，进而惠及他人、奉献社会。</p>
-                    <p class="en">Cultivate character, achieve oneself, benefit society.</p>
+                    <h3>核心：立德 成己 达人</h3>
+                    <p>修养高尚品德，成就卓越自我，进而惠及他人，奉献国家与社会。</p>
                 </div>
-                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="philo-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                     <i class="fa-solid fa-chalkboard-user"></i>
-                    <h3><span class="zh">教风：四业精神</span><span class="en">Teaching</span></h3>
-                    <p class="zh">敬业、勤业、精业、乐业，在教育中寻找职业幸福感。</p>
-                    <p class="en">Dedication, diligence, excellence, and joy in teaching.</p>
+                    <h3>教风：四业精神</h3>
+                    <p>敬业、勤业、精业、乐业，在教书育人的崇高使命中寻找职业幸福感。</p>
                 </div>
-                <div class="philo-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
+                <div class="philo-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
                     <i class="fa-solid fa-book-open"></i>
-                    <h3><span class="zh">学风：四学境界</span><span class="en">Learning</span></h3>
-                    <p class="zh">实学、善学、辩学、博学，培养批判思维，求真务实。</p>
-                    <p class="en">Practical, proficient, critical, and profound learning.</p>
+                    <h3>学风：四学境界</h3>
+                    <p>实学、善学、辩学、博学，全面培养批判性思维，追求真理与务实。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Editorial News Section -->
+    <!-- 新闻动态 (已集成弹窗展示) -->
     <section class="container" id="news">
-        <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-            <span class="subtitle">Latest Insights</span>
-            <h2><span class="zh">最新动态</span><span class="en">Editorial & News</span><span class="tw">最新動態</span></h2>
+        <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+            <span class="subtitle">前沿资讯</span>
+            <h2>新闻纵览与最新动态</h2>
             <div class="line"></div>
         </div>
 
-        <!-- 所有的动态已通过 open-in-modal 类劫持点击事件，实现弹窗内嵌 -->
         <div class="news-editorial">
-            <a href="https://www.jianpian.cn/a/1i8cb1cs" class="news-featured interactive open-in-modal" data-aos="fade-right" data-aos-duration="1500">
+            <a href="https://www.jianpian.cn/a/1i8cb1cs" class="news-featured open-in-modal" data-aos="fade-right" data-aos-duration="1200">
                 <div class="news-featured-content">
-                    <span class="news-tag"><span class="zh">学期寄语</span><span class="en">Highlight</span></span>
-                    <h3>以梦为驰，向光而行 —— 垫江十中26年春期新学期寄语</h3>
-                    <span style="font-family: var(--font-body); opacity:0.8; font-size: 0.95rem;">6天前发布</span>
+                    <span class="news-tag">头条推荐</span>
+                    <h3>以梦为驰，向光而行 —— 垫江十中2026年春期新学期寄语</h3>
+                    <span style="opacity:0.8; font-size: 0.9rem; font-weight:300;">6天前发布</span>
                 </div>
             </a>
             
-            <div class="news-list" data-aos="fade-left" data-aos-duration="1500">
-                <a href="https://www.jianpian.cn/a/1i6mi52h" class="news-list-item interactive open-in-modal">
+            <div class="news-list" data-aos="fade-left" data-aos-duration="1200">
+                <a href="https://www.jianpian.cn/a/1i6mi52h" class="news-list-item open-in-modal">
                     <div class="date">02-27 · 安全德育</div>
                     <h4>以安全护成长，以德育润青春 —— 致全体学生及家长的一封信</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1heuzjjo" class="news-list-item interactive open-in-modal">
+                <a href="https://www.jianpian.cn/a/1heuzjjo" class="news-list-item open-in-modal">
                     <div class="date">教研快讯</div>
-                    <h4>共研·共析·共成长 —— 垫江十中初2024级学情分析会</h4>
+                    <h4>共研·共析·共成长 —— 垫江十中初2024级学情深度分析会</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1hdjvapm" class="news-list-item interactive open-in-modal">
+                <a href="https://www.jianpian.cn/a/1hdjvapm" class="news-list-item open-in-modal">
                     <div class="date">2025-12-23 · 家长会</div>
-                    <h4>用陪伴的“+”法，解初二的成长方程 —— 初二年级家长会</h4>
+                    <h4>用陪伴的“+”法，解初二的成长方程 —— 沉浸式家长交流会</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1h6b567r" class="news-list-item interactive open-in-modal">
+                <a href="https://www.jianpian.cn/a/1h6b567r" class="news-list-item open-in-modal">
                     <div class="date">2025-12-09 · 艺术节</div>
                     <h4>少年有为正当时 青春绽放艺启航 —— 纪念“12.9”运动文艺汇演</h4>
                 </a>
@@ -579,140 +523,118 @@
         </div>
 
         <div class="news-grid-bottom">
-            <a href="https://www.jianpian.cn/a/1h5tagzs" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000">
+            <a href="https://www.jianpian.cn/a/1h5tagzs" class="news-card open-in-modal" data-aos="fade-up" data-aos-duration="1000">
                 <div>
                     <div class="date">2025-12-08</div>
-                    <h4>垫江十中2025年秋期足球比赛落幕，尽显绿茵风采</h4>
+                    <h4>垫江十中2025年秋期足球比赛圆满落幕，绿茵场尽显青春风采</h4>
                 </div>
-                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="read-more">阅读全文 <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gvkfyyp" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+            <a href="https://www.jianpian.cn/a/1gvkfyyp" class="news-card open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                 <div>
                     <div class="date">校园文化</div>
-                    <h4>"声动未来 智起新声"——垫江第十中学校校园主持人大赛决赛</h4>
+                    <h4>"声动未来 智起新声"——垫江第十中学校首届校园主持人大赛决赛</h4>
                 </div>
-                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="read-more">阅读全文 <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gvg0sz5" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <a href="https://www.jianpian.cn/a/1gvg0sz5" class="news-card open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <div>
                     <div class="date">2025-11-20</div>
-                    <h4>热烈祝贺垫江十中师生在全县硬笔书法现场竞赛中斩获佳绩！</h4>
+                    <h4>热烈祝贺垫江十中师生在全县硬笔书法现场竞赛中斩获最高荣誉！</h4>
                 </div>
-                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="read-more">阅读全文 <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gtajv70" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
+            <a href="https://www.jianpian.cn/a/1gtajv70" class="news-card open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 <div>
                     <div class="date">2025-11-16</div>
-                    <h4>田径队问鼎县赛之巅，双项纪录再书传奇勇夺第一名</h4>
+                    <h4>田径校队问鼎县赛之巅，双项纪录再书传奇，勇夺团体第一名</h4>
                 </div>
-                <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
+                <div class="read-more">阅读全文 <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
         </div>
     </section>
 
-    <!-- 新闻动态内嵌弹窗 (News Iframe Modal) -->
+    <!-- 弹窗展示核心：内嵌 iframe -->
     <div id="newsModal" class="news-modal">
         <div class="news-modal-content">
             <div class="news-modal-header">
-                <h3><span class="zh">动态详情</span><span class="en">News Insight</span><span class="tw">動態詳情</span></h3>
-                <div class="news-modal-close interactive" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></div>
+                <h3>动态详情阅读</h3>
+                <div class="news-modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></div>
             </div>
             <div class="news-iframe-wrap">
                 <div class="news-iframe-loader">
-                    <i class="fa-solid fa-spinner fa-spin"></i>
-                    <span>Loading Content...</span>
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    <span>精彩内容加载中...</span>
                 </div>
                 <iframe id="newsIframe" src="" title="最新动态内容"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Bento Box Gallery Section -->
-    <section class="philo-section" id="campus" style="padding: 8rem 0;">
-        <div class="container" style="padding:0 5%;">
-            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-                <span class="subtitle">Campus Aesthetics</span>
-                <h2><span class="zh">校园画廊与风貌</span><span class="en">Visual Gallery</span><span class="tw">校園畫廊</span></h2>
+    <!-- 校园画廊 -->
+    <section class="philo-section" id="campus" style="padding-bottom: 10rem;">
+        <div class="container" style="padding-top:0; padding-bottom: 0;">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <span class="subtitle">校园美学</span>
+                <h2>风貌画廊与活动掠影</h2>
                 <div class="line"></div>
             </div>
 
             <div class="bento-gallery">
-                <div class="bento-item large interactive" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="bento-item large" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kGmtGHtgwCIyGNrhwLqgYVxrqRj-AAIzEWsbqKVoVUs5IqevoZxtAQADAgADeQADOgQ.png" alt="操场风貌">
-                    <div class="bento-overlay">
-                        <h3><span class="zh">标准化田径运动场</span><span class="en">Standard Track Field</span></h3>
-                    </div>
+                    <div class="bento-overlay"><h3>标准化田径运动场</h3></div>
                 </div>
-                <div class="bento-item tall interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="150">
+                <div class="bento-item tall" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="150">
                     <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERhrJprReY3PlnpzGScHq05ZKUdUFwAQACPSAAAlIUaFXeCbXMrrnxQDoE.jpeg" alt="文艺汇演">
-                    <div class="bento-overlay">
-                        <h3><span class="zh">冬季艺术节汇演</span><span class="en">Winter Art Fest</span></h3>
-                    </div>
+                    <div class="bento-overlay"><h3>年度冬季艺术节汇演</h3></div>
                 </div>
-                <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+                <div class="bento-item" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jWmtGBgr7Ot1-_9K32vYIMOAA_MpAAIvEWsbqKVoVZ0uhRFqAAEhVQEAAwIAA3cAAzoE.webp" alt="足球赛">
-                    <div class="bento-overlay">
-                        <h3><span class="zh">全国足球特色校</span><span class="en">Football</span></h3>
-                    </div>
+                    <div class="bento-overlay"><h3>全国足球特色校风采</h3></div>
                 </div>
-                <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="450">
+                <div class="bento-item" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jGmtF-mFGz9Cj5Y0fOo5fDOxGr1WAAItEWsbqKVoVSdL7_nSah5BAQADAgADdwADOgQ.webp" alt="阳光学子">
-                    <div class="bento-overlay">
-                        <h3><span class="zh">阳光学子风貌</span><span class="en">Student Life</span></h3>
-                    </div>
+                    <div class="bento-overlay"><h3>阳光学子昂扬风貌</h3></div>
                 </div>
-                <div class="bento-item wide interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">
+                <div class="bento-item wide" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8j2mtGEsZ7rkAAWICG7RRB6hbS-k0DgACMhFrG6ilaFV0RGa--47W9wEAAwIAA3gAAzoE.webp" alt="劳动种植基地">
-                    <div class="bento-overlay">
-                        <h3><span class="zh">“耕读园”劳动教育基地</span><span class="en">Labor & Farming Base</span></h3>
-                    </div>
+                    <div class="bento-overlay"><h3>“耕读园”特色劳动教育基地</h3></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Upgraded Contact Section -->
+    <!-- 联系我们 -->
     <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up" data-aos-duration="1200">
-                <span class="subtitle" style="color:#fff; opacity:0.8;">Get In Touch</span>
-                <h2><span class="zh">联系我们</span><span class="en">Contact</span><span class="tw">聯絡我們</span></h2>
+        <div class="container" style="padding-top:0; padding-bottom:0;">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <span class="subtitle" style="color:var(--secondary-color); opacity:0.9;">与我们取得联系</span>
+                <h2 style="color: #fff;">联络方式与地理位置</h2>
                 <div class="line" style="background:var(--secondary-color);"></div>
             </div>
             
             <div class="contact-wrap">
-                <div class="map-wrapper interactive" data-aos="fade-right" data-aos-duration="1500">
-                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lmmtISE4XpyxjKPTDpwgVTBMTnNkAAJREWsbqKVoVS98rNQU8kCHAQADAgADeAADOgQ.png" alt="School Map" class="interactive-map">
+                <div class="map-wrapper" data-aos="fade-right" data-aos-duration="1200">
+                    <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lmmtISE4XpyxjKPTDpwgVTBMTnNkAAJREWsbqKVoVS98rNQU8kCHAQADAgADeAADOgQ.png" alt="学校电子地图" class="interactive-map">
                 </div>
-                <div class="contact-info" data-aos="fade-left" data-aos-duration="1500">
+                <div class="contact-info" data-aos="fade-left" data-aos-duration="1200">
                     <ul class="contact-list">
-                        <li class="interactive">
+                        <li>
                             <i class="fa-solid fa-location-dot"></i>
-                            <div>
-                                <strong><span class="zh">地址</span><span class="en">Address</span></strong>
-                                重庆市垫江县桂溪街道渝巫路259号 (邮编: 408300)
-                            </div>
+                            <div><strong>学校地址</strong>重庆市垫江县桂溪街道渝巫路259号 (邮编: 408300)</div>
                         </li>
-                        <li class="interactive">
+                        <li>
                             <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <strong><span class="zh">办公室电话</span><span class="en">Office Phone</span></strong>
-                                023-74518864
-                            </div>
+                            <div><strong>行政办公室</strong>023-74518864</div>
                         </li>
-                        <li class="interactive">
+                        <li>
                             <i class="fa-solid fa-mobile-screen-button"></i>
-                            <div>
-                                <strong><span class="zh">事务咨询</span><span class="en">Inquiries</span></strong>
-                                023-74669301 (王老师)
-                            </div>
+                            <div><strong>事务与招生咨询</strong>023-74669301 (王老师)</div>
                         </li>
-                        <li class="interactive">
+                        <li>
                             <i class="fa-solid fa-at"></i>
-                            <div>
-                                <strong><span class="zh">电子邮箱</span><span class="en">Email</span></strong>
-                                wanglian561@163.com
-                            </div>
+                            <div><strong>官方电子邮箱</strong>wanglian561@163.com</div>
                         </li>
                     </ul>
                 </div>
@@ -720,87 +642,49 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer class="footer">
-        <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" alt="Logo" class="footer-logo interactive">
-        <h2 style="font-family: var(--font-heading);">重庆市垫江县第十中学</h2>
-        <p style="letter-spacing: 4px; text-transform: uppercase; font-size:0.95rem; color: var(--secondary-color);">立德为首 · 五育并举 · 追求卓越</p>
+        <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" alt="重庆市垫江县第十中学" class="footer-logo">
+        <h2>重庆市垫江县第十中学</h2>
+        <p style="letter-spacing: 6px; font-size:0.9rem; color: var(--secondary-color);">立德为首 · 五育并举 · 追求卓越</p>
         
         <div class="footer-tech">
             <div class="tech-icons">
-                <i class="fa-brands fa-html5 interactive" title="HTML5"></i>
-                <i class="fa-brands fa-css3-alt interactive" title="CSS3"></i>
-                <i class="fa-brands fa-js interactive" title="JavaScript"></i>
-                <i class="fa-solid fa-universal-access interactive" title="A11y Accessibility"></i>
+                <i class="fa-brands fa-html5" title="HTML5"></i>
+                <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+                <i class="fa-brands fa-js" title="JavaScript"></i>
+                <i class="fa-solid fa-shield-halved" title="安全浏览"></i>
             </div>
-            <p style="max-width: 600px; margin: 0 auto; line-height: 1.8; color:rgba(255,255,255,0.4);">
-                本网站采用 <strong>HTML5 & CSS3</strong> 技术构建，注入高级动效与微交互体验。<br>
-                具备无障碍访问（A11y）功能及多语言设计，支持深浅色模式与动态字体调整。
+            <p style="max-width: 600px; margin: 0 auto; line-height: 2; color:rgba(255,255,255,0.3);">
+                本网站采用新一代前沿 Web 技术构建，提供极致流畅的浏览体验。<br>
+                支持全平台的深浅色自动适配及无障碍阅读辅助功能。
             </p>
-            <p style="margin-top: 2rem; font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 垫江十中 版权所有. All Rights Reserved.</p>
+            <p style="margin-top: 2.5rem; font-size: 0.8rem; letter-spacing: 1px; font-family: var(--font-number); color:rgba(255,255,255,0.2);">&copy; 2026 垫江十中 版权所有. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JS 逻辑控制 -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // 1. Preloader Logic
+        // 1. 加载动画
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 1800);
+            setTimeout(() => { document.body.classList.add('loaded'); }, 1500); 
         });
 
-        // 2. Custom Cursor Logic
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        const interactives = document.querySelectorAll('.interactive, a, button, input');
+        // 2. 高级 AOS 滚动呈现初始化
+        AOS.init({ duration: 1000, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', once: true, offset: 80, delay: 50 });
 
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        interactives.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-        });
-
-        // 3. Advanced AOS Animation Library Initialization
-        AOS.init({ duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true, offset: 100, delay: 100 });
-
-        // 4. Navbar Scroll Effect
+        // 3. 导航栏滚动毛玻璃效果
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if(window.scrollY > 60) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
 
-        // 5. Language Toggle System
-        const langs =['zh', 'en', 'tw'];
-        let currentLangIndex = 0;
-        function toggleLanguage() {
-            document.body.classList.remove(`lang-${langs[currentLangIndex]}`);
-            currentLangIndex = (currentLangIndex + 1) % langs.length;
-            document.body.classList.add(`lang-${langs[currentLangIndex]}`);
-        }
-
-        // 6. Dark/Light Theme Toggle
+        // 4. 深/浅色主题切换
         const themeBtn = document.getElementById('themeBtn');
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
                 document.documentElement.removeAttribute('data-theme');
                 themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
             } else {
@@ -809,7 +693,7 @@
             }
         }
 
-        // 7. Font Size Toggle (A11y)
+        // 5. 辅助阅读字体放大功能
         const fontSizes =['16px', '17px', '18px'];
         let currentFontIndex = 0;
         function toggleFontSize() {
@@ -817,53 +701,60 @@
             document.documentElement.style.setProperty('--font-size-base', fontSizes[currentFontIndex]);
         }
 
-        // 8. Mobile Menu Toggle
+        // 6. 移动端菜单
         function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
-
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
+            link.addEventListener('click', () => { document.getElementById('navLinks').classList.remove('active'); });
         });
 
-        // 9. Iframe Modal Logic (嵌入式动态内容展示)
+        // 7. 新闻 iframe 内嵌弹窗逻辑
         const modal = document.getElementById('newsModal');
         const iframe = document.getElementById('newsIframe');
-
         document.querySelectorAll('.open-in-modal').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault(); // 阻止默认新页面跳转行为
+                e.preventDefault();
                 const url = this.getAttribute('href');
                 if (url) {
-                    openModal(url);
+                    iframe.src = url;
+                    modal.style.display = 'flex';
+                    void modal.offsetWidth; 
+                    modal.classList.add('show');
+                    document.body.classList.add('modal-open'); 
                 }
             });
         });
-
-        function openModal(url) {
-            iframe.src = url;
-            modal.style.display = 'flex';
-            void modal.offsetWidth; // 触发页面重绘 (Reflow)
-            modal.classList.add('show');
-            document.body.classList.add('modal-open'); // 禁用背景滚动，隐藏自定义光标防止错乱
-        }
-
         function closeModal() {
             modal.classList.remove('show');
             document.body.classList.remove('modal-open'); 
-            setTimeout(() => {
-                modal.style.display = 'none';
-                iframe.src = ''; // 释放内存，停止加载
-            }, 400); // 确保等待 CSS 动画完毕
+            setTimeout(() => { modal.style.display = 'none'; iframe.src = ''; }, 400); 
         }
+        window.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
 
-        // 点击蒙版外部区域也可以关闭弹窗
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
+        // -------------------------------------------------------------
+        // 8. 全新强制视频背景监控：帮您排查您提供的外链是否失效
+        // -------------------------------------------------------------
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById('heroVideo');
+            const statusBox = document.getElementById('videoStatus');
+
+            // 如果视频可以正常播放，则显示视频、隐藏文字提示
+            video.addEventListener('playing', () => {
+                video.classList.add('playing');
+                statusBox.style.display = 'none';
+            });
+
+            // 若视频链接失效 (防盗链 / 文件已删 / 格式不支持)，则显示红字错误警告
+            video.addEventListener('error', () => {
+                statusBox.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 动态视频加载失败<br><span style="font-size:0.8rem; font-weight:300; opacity:0.8; margin-top:5px; display:inline-block;">您提供的 MP4 链接可能存在防盗链限制、不支持视频流或已被删除。</span>';
+                statusBox.style.color = '#ff4757';
+            });
+            
+            // 确保播放被触发
+            let playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => { console.log("浏览器拦截了自动播放:", error); });
             }
         });
     </script>
