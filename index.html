@@ -1,10 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO & Metadata Optimization -->
     <title>重庆市垫江县第十中学 | Dianjiang No.10 Middle School</title>
+    <meta name="description" content="重庆市垫江县第十中学（垫江十中），原凤山中学，首创“三段六环”智慧课堂，全国足球特色学校。秉承“恒德凝命”校训，致力于卓越育人、立德树人，提供优质的公办初中教育。">
+    <meta name="keywords" content="垫江十中, 重庆市垫江县第十中学, 凤山中学, 垫江县初中, 智慧课堂, 全国足球特色学校, 恒德凝命">
+    <meta name="author" content="重庆市垫江县第十中学">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media Sharing) -->
+    <meta property="og:title" content="重庆市垫江县第十中学 | Dianjiang No.10 Middle School">
+    <meta property="og:description" content="恒德凝命，立德树人。重庆市垫江县第十中学官方网站，了解我们的办学理念、最新动态与校园风貌。">
+    <meta property="og:image" content="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg">
+    <meta property="og:type" content="website">
+
+    <!-- Browser Favicon & Apple Touch Icon -->
+    <link rel="icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" type="image/jpeg">
+    <link rel="shortcut icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8i2mtCsbb_iYr9Y6qt9yeTqUK6pFlAAIEEWsbqKVoVUf5f_BwzB9UAQADAgADeQADOgQ.jpeg">
     
     <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -57,21 +75,17 @@
             cursor: none; /* Hide default cursor for custom one */
         }
 
-        /* Base Typography & Background Transition */
-        html {
-            font-size: var(--font-size-base);
-            scroll-behavior: smooth;
-        }
+        html { font-size: var(--font-size-base); scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.8;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-primary);
+            line-height: 1.8; overflow-x: hidden; -webkit-font-smoothing: antialiased;
             transition: background-color 0.8s ease, color 0.8s ease;
         }
+
+        /* Prevent scroll when modal is open */
+        body.modal-open { overflow: hidden; }
+        body.modal-open .cursor-dot, body.modal-open .cursor-outline { display: none !important; }
 
         /* Language Toggle System */
         body.lang-en .zh, body.lang-en .tw { display: none !important; }
@@ -84,8 +98,7 @@
         /* Custom Cursor */
         .cursor-dot, .cursor-outline {
             position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000;
-            border-radius: 50%; transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease-in-out;
+            border-radius: 50%; transform: translate(-50%, -50%); transition: opacity 0.3s ease-in-out;
         }
         .cursor-dot { width: 6px; height: 6px; background: var(--secondary-color); }
         .cursor-outline {
@@ -93,8 +106,7 @@
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s;
         }
         .hovering .cursor-outline {
-            width: 70px; height: 70px; background: rgba(212, 175, 55, 0.1); border-color: transparent;
-            backdrop-filter: blur(2px);
+            width: 70px; height: 70px; background: rgba(212, 175, 55, 0.1); border-color: transparent; backdrop-filter: blur(2px);
         }
         .hovering .cursor-dot { transform: translate(-50%, -50%) scale(0.5); }
 
@@ -105,8 +117,8 @@
 
         /* Preloader */
         #preloader {
-            position: fixed; inset: 0; z-index: 99999;
-            background: #0A192F; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: fixed; inset: 0; z-index: 99999; background: #0A192F;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             transition: opacity 1s ease, visibility 1s ease;
         }
         .loader-logo-wrap { overflow: hidden; margin-bottom: 20px; }
@@ -169,16 +181,21 @@
         .tool-btn:hover { border-color: var(--secondary-color); color: #fff; }
         .tool-btn:hover::before { transform: scale(1); }
 
-        /* Hero Section */
+        /* Hero Section with Video Background */
         .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; overflow: hidden; }
         .hero-bg {
             position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
+            /* Fallback Background Image */
             background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lWmtHwy9_5yKfPO05JQ4z0pZfUrdAAJIEWsbqKVoVYSBMDWmGl7kAQADAgADeAADOgQ.jpg') center/cover no-repeat;
             animation: cinematicZoom 25s infinite alternate ease-in-out; z-index: 1;
         }
+        .hero-video {
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; top: 0; left: 0; border: none; z-index: 1;
+        }
         .hero-overlay {
             position: absolute; inset: 0; z-index: 2;
-            background: linear-gradient(180deg, rgba(10,25,47,0.3) 0%, rgba(10,25,47,0.8) 100%);
+            background: linear-gradient(180deg, rgba(10,25,47,0.4) 0%, rgba(10,25,47,0.85) 100%);
             mix-blend-mode: multiply;
         }
         .hero-content { position: relative; z-index: 3; padding: 0 20px; }
@@ -188,7 +205,7 @@
         }
         .hero-content p {
             font-family: var(--font-body); font-size: 1.3rem; font-weight: 400; letter-spacing: 12px;
-            color: var(--secondary-color); text-transform: uppercase;
+            color: var(--secondary-color); text-transform: uppercase; text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
         .scroll-down {
             position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; color: #fff; font-size: 1.8rem;
@@ -201,7 +218,7 @@
 
         .container { max-width: 1500px; margin: 0 auto; padding: 8rem 5%; }
 
-        /* Stats (Premium Glassmorphism) */
+        /* Stats */
         .stats-wrap { position: relative; z-index: 10; margin-top: -80px; padding: 0 5%; }
         .stats-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
@@ -209,9 +226,7 @@
             border-radius: 24px; box-shadow: var(--shadow-premium);
             border: 1px solid rgba(255,255,255,0.8); padding: 4rem 0; overflow: hidden; position: relative;
         }
-        [data-theme="dark"] .stats-grid {
-            background: rgba(20, 20, 20, 0.6); border-color: rgba(255,255,255,0.1);
-        }
+        [data-theme="dark"] .stats-grid { background: rgba(20, 20, 20, 0.6); border-color: rgba(255,255,255,0.1); }
         .stat-item { text-align: center; border-right: 1px solid var(--border-color); transition: transform 0.4s; }
         .stat-item:hover { transform: translateY(-5px); }
         .stat-item:last-child { border-right: none; }
@@ -222,16 +237,9 @@
         .about-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 8rem; align-items: center; }
         .about-text h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; position: relative; }
         .about-text p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.8rem; text-align: justify; line-height: 2; }
-        
         .about-img-wrap { position: relative; perspective: 1000px; }
-        .about-img-bg {
-            position: absolute; top: -30px; left: -30px; width: 100%; height: 100%;
-            border: 2px solid var(--secondary-color); border-radius: 24px; z-index: 0; transition: var(--transition-smooth);
-        }
-        .about-img {
-            position: relative; z-index: 1; border-radius: 24px; overflow: hidden;
-            box-shadow: var(--shadow-premium); transition: var(--transition-smooth);
-        }
+        .about-img-bg { position: absolute; top: -30px; left: -30px; width: 100%; height: 100%; border: 2px solid var(--secondary-color); border-radius: 24px; z-index: 0; transition: var(--transition-smooth); }
+        .about-img { position: relative; z-index: 1; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-premium); transition: var(--transition-smooth); }
         .about-img img { width: 100%; display: block; filter: grayscale(20%); transition: var(--transition-smooth); transform: scale(1.02); }
         .about-img-wrap:hover .about-img { transform: rotateY(-5deg) rotateX(5deg); }
         .about-img-wrap:hover .about-img-bg { transform: translate(15px, 15px); }
@@ -240,16 +248,8 @@
         /* Philosophy Section */
         .philo-section { background-color: var(--surface-color); position: relative; padding: 6rem 0; }
         .philo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-        .philo-card {
-            padding: 4rem 2rem; background: var(--bg-color); border-radius: 20px;
-            text-align: center; transition: var(--transition-smooth);
-            border: 1px solid transparent; position: relative; overflow: hidden; z-index: 1;
-        }
-        .philo-card::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0%;
-            background: linear-gradient(180deg, var(--secondary-color) 0%, transparent 100%);
-            opacity: 0.05; z-index: -1; transition: height 0.6s ease;
-        }
+        .philo-card { padding: 4rem 2rem; background: var(--bg-color); border-radius: 20px; text-align: center; transition: var(--transition-smooth); border: 1px solid transparent; position: relative; overflow: hidden; z-index: 1; }
+        .philo-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0%; background: linear-gradient(180deg, var(--secondary-color) 0%, transparent 100%); opacity: 0.05; z-index: -1; transition: height 0.6s ease; }
         .philo-card:hover { transform: translateY(-20px); border-color: var(--secondary-color); box-shadow: var(--shadow-premium); }
         .philo-card:hover::after { height: 100%; }
         .philo-card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 2rem; transition: transform 0.4s; }
@@ -257,37 +257,20 @@
         .philo-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
         .philo-card p { font-size: 1rem; color: var(--text-secondary); }
 
-        /* Editorial News Section (MAGAZINE STYLE) */
+        /* Editorial News Section */
         .news-editorial { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-bottom: 5rem; }
-        .news-featured {
-            position: relative; border-radius: 24px; overflow: hidden; height: 550px;
-            box-shadow: var(--shadow-premium); display: flex; align-items: flex-end;
-            background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp') center/cover;
-            transition: var(--transition-smooth);
-        }
-        .news-featured::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to top, #0A192F 0%, transparent 70%); transition: opacity 0.5s;
-        }
+        .news-featured { position: relative; border-radius: 24px; overflow: hidden; height: 550px; box-shadow: var(--shadow-premium); display: flex; align-items: flex-end; background: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp') center/cover; transition: var(--transition-smooth); }
+        .news-featured::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #0A192F 0%, transparent 70%); transition: opacity 0.5s; }
         .news-featured:hover { transform: scale(1.02); }
         .news-featured:hover::before { opacity: 0.8; }
         .news-featured-content { position: relative; z-index: 2; padding: 4rem 3rem; color: #fff; width: 100%; transition: transform 0.5s; }
         .news-featured:hover .news-featured-content { transform: translateY(-10px); }
-        .news-tag {
-            display: inline-block; padding: 6px 16px; background: var(--secondary-color); color: #fff;
-            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; margin-bottom: 1.5rem;
-        }
+        .news-tag { display: inline-block; padding: 6px 16px; background: var(--secondary-color); color: #fff; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; margin-bottom: 1.5rem; }
         .news-featured-content h3 { font-size: 2.2rem; margin-bottom: 1rem; }
         
         .news-list { display: flex; flex-direction: column; justify-content: space-between; height: 550px;}
-        .news-list-item {
-            display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; padding-top: 1rem;
-            transition: var(--transition-smooth); position: relative;
-        }
-        .news-list-item::before {
-            content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%);
-            width: 4px; height: 0; background: var(--secondary-color); transition: height 0.4s;
-        }
+        .news-list-item { display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; padding-top: 1rem; transition: var(--transition-smooth); position: relative; }
+        .news-list-item::before { content: ''; position: absolute; left: -20px; top: 50%; transform: translateY(-50%); width: 4px; height: 0; background: var(--secondary-color); transition: height 0.4s; }
         .news-list-item:hover { transform: translateX(20px); border-color: transparent; }
         .news-list-item:hover::before { height: 70%; }
         .news-list-item:last-child { border-bottom: none; }
@@ -295,73 +278,80 @@
         .news-list-item h4 { font-size: 1.3rem; color: var(--text-primary); transition: color 0.3s; line-height: 1.5; }
 
         .news-grid-bottom { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
-        .news-card {
-            background: var(--surface-color); border-radius: 16px; padding: 2.5rem;
-            border: 1px solid var(--border-color); transition: var(--transition-smooth);
-            display: flex; flex-direction: column; justify-content: space-between; position: relative;
-        }
+        .news-card { background: var(--surface-color); border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border-color); transition: var(--transition-smooth); display: flex; flex-direction: column; justify-content: space-between; position: relative; }
         .news-card:hover { box-shadow: var(--shadow-hover); border-color: var(--secondary-color); transform: translateY(-10px); }
         .news-card .date { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
         .news-card h4 { font-size: 1.15rem; line-height: 1.6; margin-bottom: 2rem; }
-        .read-more {
-            font-size: 0.9rem; font-weight: 600; color: var(--primary-color);
-            display: flex; align-items: center; gap: 8px; text-transform: uppercase; transition: color 0.3s;
-        }
+        .read-more { font-size: 0.9rem; font-weight: 600; color: var(--primary-color); display: flex; align-items: center; gap: 8px; text-transform: uppercase; transition: color 0.3s; }
         .read-more i { transition: transform 0.3s; }
         .news-card:hover .read-more { color: var(--secondary-color); }
         .news-card:hover .read-more i { transform: translateX(5px); }
 
-        /* Premium Bento Box Gallery */
-        .bento-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 320px; gap: 1.5rem; }
-        .bento-item {
-            position: relative; border-radius: 20px; overflow: hidden;
-            box-shadow: var(--shadow-light); transition: var(--transition-smooth);
+        /* ---------------- Modal (Iframe News Embed) ---------------- */
+        .news-modal {
+            display: none; position: fixed; inset: 0; z-index: 100000;
+            background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;
         }
+        .news-modal.show { opacity: 1; display: flex; }
+        .news-modal-content {
+            width: 90%; max-width: 1200px; height: 85vh;
+            background: var(--bg-color); border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow-premium); transform: scale(0.95) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; flex-direction: column; border: 1px solid var(--border-color);
+        }
+        .news-modal.show .news-modal-content { transform: scale(1) translateY(0); }
+        .news-modal-header {
+            height: 65px; background: var(--surface-color); display: flex; align-items: center; justify-content: space-between;
+            padding: 0 1.5rem; border-bottom: 1px solid var(--border-color);
+        }
+        .news-modal-header h3 { font-size: 1.1rem; color: var(--text-primary); margin: 0; font-family: var(--font-body); font-weight: 600; }
+        .news-modal-close {
+            width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            background: var(--bg-color); color: var(--text-primary); font-size: 1.2rem; cursor: pointer;
+            transition: all 0.3s; border: 1px solid var(--border-color);
+        }
+        .news-modal-close:hover { background: #ff4757; color: #fff; border-color: #ff4757; transform: rotate(90deg); }
+        .news-iframe-wrap { flex: 1; position: relative; background: var(--bg-color); }
+        .news-iframe-loader {
+            position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--secondary-color); font-size: 2rem; z-index: 1; gap: 15px;
+        }
+        .news-iframe-loader span { font-size: 0.9rem; font-family: var(--font-body); letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase; }
+        #newsIframe { width: 100%; height: 100%; border: none; position: relative; z-index: 2; background: transparent; }
+        /* ----------------------------------------------------------- */
+
+        /* Bento Box Gallery */
+        .bento-gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 320px; gap: 1.5rem; }
+        .bento-item { position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-light); transition: var(--transition-smooth); }
         .bento-item.large { grid-column: span 2; grid-row: span 2; }
         .bento-item.wide { grid-column: span 2; grid-row: span 1; }
         .bento-item.tall { grid-column: span 1; grid-row: span 2; }
-        
         .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9); }
-        .bento-overlay {
-            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
-            display: flex; align-items: flex-end; padding: 2.5rem; opacity: 0; transition: var(--transition-smooth);
-        }
+        .bento-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 2.5rem; opacity: 0; transition: var(--transition-smooth); }
         .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
         .bento-item:hover img { transform: scale(1.1); filter: brightness(1); }
         .bento-item:hover .bento-overlay { opacity: 1; }
         .bento-overlay h3 { color: #fff; font-size: 1.5rem; transform: translateY(20px); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .bento-item:hover .bento-overlay h3 { transform: translateY(0); }
 
-        /* Map & Contact (Upgraded Map) */
+        /* Contact Section */
         .contact-section { background: var(--primary-color); color: #fff; padding: 8rem 0; position: relative; overflow: hidden; }
-        .contact-section::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%); pointer-events: none;
-        }
+        .contact-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 60%); pointer-events: none; }
         .contact-section .section-header h2 { color: #fff; }
         .contact-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; }
-        
-        .map-wrapper {
-            border-radius: 24px; overflow: hidden; padding: 12px;
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3); transition: var(--transition-smooth);
-        }
+        .map-wrapper { border-radius: 24px; overflow: hidden; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.3); transition: var(--transition-smooth); }
         .map-wrapper:hover { transform: translateY(-10px); border-color: rgba(212,175,55,0.5); }
-        .interactive-map {
-            width: 100%; height: 500px; border-radius: 16px; object-fit: cover;
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9);
-        }
+        .interactive-map { width: 100%; height: 500px; border-radius: 16px; object-fit: cover; transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0.9); }
         .map-wrapper:hover .interactive-map { transform: scale(1.05); filter: brightness(1.05); }
-
         .contact-list li { display: flex; align-items: flex-start; gap: 1.8rem; margin-bottom: 2.5rem; font-size: 1.15rem; color: rgba(255,255,255,0.7); transition: transform 0.3s; }
         .contact-list li:hover { transform: translateX(10px); color: #fff; }
         .contact-list i { font-size: 1.8rem; color: var(--secondary-color); margin-top: 5px; }
         .contact-list strong { color: #fff; font-family: var(--font-heading); font-size: 1.3rem; display: block; margin-bottom: 8px; letter-spacing: 1px;}
 
         /* Footer */
-        .footer {
-            background: #050B14; color: rgba(255,255,255,0.5); padding: 5rem 5% 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); position: relative;
-        }
+        .footer { background: #050B14; color: rgba(255,255,255,0.5); padding: 5rem 5% 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
         .footer-logo { height: 70px; border-radius: 50%; margin-bottom: 2rem; opacity: 0.9; transition: transform 0.5s; }
         .footer-logo:hover { transform: scale(1.1); }
         .footer h2 { color: #fff; font-size: 2rem; margin-bottom: 1rem; }
@@ -437,9 +427,14 @@
         </div>
     </nav>
 
-    <!-- Hero Cinematic Section -->
+    <!-- Hero Cinematic Section (With Dynamic Video Background) -->
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg">
+            <!-- 视频背景：若加载失败，外层 div 的背景图片和这里的 poster 封面图起完美回退作用 -->
+            <video autoplay loop muted playsinline class="hero-video" poster="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lWmtHwy9_5yKfPO05JQ4z0pZfUrdAAJIEWsbqKVoVYSBMDWmGl7kAQADAgADeAADOgQ.jpg">
+                <source src="https://img.yohuo.eu.org/1773644803175.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="zh" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">重庆市垫江县第十中学</h1>
@@ -553,9 +548,9 @@
             <div class="line"></div>
         </div>
 
-        <!-- Magazine Layout: Top 5 News -->
+        <!-- 所有的动态已通过 open-in-modal 类劫持点击事件，实现弹窗内嵌 -->
         <div class="news-editorial">
-            <a href="https://www.jianpian.cn/a/1i8cb1cs" target="_blank" class="news-featured interactive" data-aos="fade-right" data-aos-duration="1500">
+            <a href="https://www.jianpian.cn/a/1i8cb1cs" class="news-featured interactive open-in-modal" data-aos="fade-right" data-aos-duration="1500">
                 <div class="news-featured-content">
                     <span class="news-tag"><span class="zh">学期寄语</span><span class="en">Highlight</span></span>
                     <h3>以梦为驰，向光而行 —— 垫江十中26年春期新学期寄语</h3>
@@ -564,49 +559,48 @@
             </a>
             
             <div class="news-list" data-aos="fade-left" data-aos-duration="1500">
-                <a href="https://www.jianpian.cn/a/1i6mi52h" target="_blank" class="news-list-item interactive">
+                <a href="https://www.jianpian.cn/a/1i6mi52h" class="news-list-item interactive open-in-modal">
                     <div class="date">02-27 · 安全德育</div>
                     <h4>以安全护成长，以德育润青春 —— 致全体学生及家长的一封信</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1heuzjjo" target="_blank" class="news-list-item interactive">
+                <a href="https://www.jianpian.cn/a/1heuzjjo" class="news-list-item interactive open-in-modal">
                     <div class="date">教研快讯</div>
                     <h4>共研·共析·共成长 —— 垫江十中初2024级学情分析会</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1hdjvapm" target="_blank" class="news-list-item interactive">
+                <a href="https://www.jianpian.cn/a/1hdjvapm" class="news-list-item interactive open-in-modal">
                     <div class="date">2025-12-23 · 家长会</div>
                     <h4>用陪伴的“+”法，解初二的成长方程 —— 初二年级家长会</h4>
                 </a>
-                <a href="https://www.jianpian.cn/a/1h6b567r" target="_blank" class="news-list-item interactive">
+                <a href="https://www.jianpian.cn/a/1h6b567r" class="news-list-item interactive open-in-modal">
                     <div class="date">2025-12-09 · 艺术节</div>
                     <h4>少年有为正当时 青春绽放艺启航 —— 纪念“12.9”运动文艺汇演</h4>
                 </a>
             </div>
         </div>
 
-        <!-- Bottom Grid: News 6-9 -->
         <div class="news-grid-bottom">
-            <a href="https://www.jianpian.cn/a/1h5tagzs" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000">
+            <a href="https://www.jianpian.cn/a/1h5tagzs" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000">
                 <div>
                     <div class="date">2025-12-08</div>
                     <h4>垫江十中2025年秋期足球比赛落幕，尽显绿茵风采</h4>
                 </div>
                 <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gvkfyyp" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+            <a href="https://www.jianpian.cn/a/1gvkfyyp" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
                 <div>
                     <div class="date">校园文化</div>
                     <h4>"声动未来 智起新声"——垫江第十中学校校园主持人大赛决赛</h4>
                 </div>
                 <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gvg0sz5" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <a href="https://www.jianpian.cn/a/1gvg0sz5" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 <div>
                     <div class="date">2025-11-20</div>
                     <h4>热烈祝贺垫江十中师生在全县硬笔书法现场竞赛中斩获佳绩！</h4>
                 </div>
                 <div class="read-more">Read More <i class="fa-solid fa-arrow-right-long"></i></div>
             </a>
-            <a href="https://www.jianpian.cn/a/1gtajv70" target="_blank" class="news-card interactive" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
+            <a href="https://www.jianpian.cn/a/1gtajv70" class="news-card interactive open-in-modal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="450">
                 <div>
                     <div class="date">2025-11-16</div>
                     <h4>田径队问鼎县赛之巅，双项纪录再书传奇勇夺第一名</h4>
@@ -615,6 +609,23 @@
             </a>
         </div>
     </section>
+
+    <!-- 新闻动态内嵌弹窗 (News Iframe Modal) -->
+    <div id="newsModal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h3><span class="zh">动态详情</span><span class="en">News Insight</span><span class="tw">動態詳情</span></h3>
+                <div class="news-modal-close interactive" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="news-iframe-wrap">
+                <div class="news-iframe-loader">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <span>Loading Content...</span>
+                </div>
+                <iframe id="newsIframe" src="" title="最新动态内容"></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- Bento Box Gallery Section -->
     <section class="philo-section" id="campus" style="padding: 8rem 0;">
@@ -626,35 +637,30 @@
             </div>
 
             <div class="bento-gallery">
-                <!-- Large Item (2x2) -->
                 <div class="bento-item large interactive" data-aos="zoom-in" data-aos-duration="1200">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kGmtGHtgwCIyGNrhwLqgYVxrqRj-AAIzEWsbqKVoVUs5IqevoZxtAQADAgADeQADOgQ.png" alt="操场风貌">
                     <div class="bento-overlay">
                         <h3><span class="zh">标准化田径运动场</span><span class="en">Standard Track Field</span></h3>
                     </div>
                 </div>
-                <!-- Tall Item (1x2) -->
                 <div class="bento-item tall interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="150">
                     <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERhrJprReY3PlnpzGScHq05ZKUdUFwAQACPSAAAlIUaFXeCbXMrrnxQDoE.jpeg" alt="文艺汇演">
                     <div class="bento-overlay">
                         <h3><span class="zh">冬季艺术节汇演</span><span class="en">Winter Art Fest</span></h3>
                     </div>
                 </div>
-                <!-- Standard Item (1x1) -->
                 <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jWmtGBgr7Ot1-_9K32vYIMOAA_MpAAIvEWsbqKVoVZ0uhRFqAAEhVQEAAwIAA3cAAzoE.webp" alt="足球赛">
                     <div class="bento-overlay">
                         <h3><span class="zh">全国足球特色校</span><span class="en">Football</span></h3>
                     </div>
                 </div>
-                <!-- Standard Item (1x1) -->
                 <div class="bento-item interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="450">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jGmtF-mFGz9Cj5Y0fOo5fDOxGr1WAAItEWsbqKVoVSdL7_nSah5BAQADAgADdwADOgQ.webp" alt="阳光学子">
                     <div class="bento-overlay">
                         <h3><span class="zh">阳光学子风貌</span><span class="en">Student Life</span></h3>
                     </div>
                 </div>
-                <!-- Wide Item (2x1) -->
                 <div class="bento-item wide interactive" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8j2mtGEsZ7rkAAWICG7RRB6hbS-k0DgACMhFrG6ilaFV0RGa--47W9wEAAwIAA3gAAzoE.webp" alt="劳动种植基地">
                     <div class="bento-overlay">
@@ -675,7 +681,6 @@
             </div>
             
             <div class="contact-wrap">
-                <!-- Map Upgraded to Interactive Image -->
                 <div class="map-wrapper interactive" data-aos="fade-right" data-aos-duration="1500">
                     <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8lmmtISE4XpyxjKPTDpwgVTBMTnNkAAJREWsbqKVoVS98rNQU8kCHAQADAgADeAADOgQ.png" alt="School Map" class="interactive-map">
                 </div>
@@ -743,7 +748,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.body.classList.add('loaded');
-            }, 1800); // 确保完整的开场动画时长
+            }, 1800);
         });
 
         // 2. Custom Cursor Logic
@@ -770,13 +775,7 @@
         });
 
         // 3. Advanced AOS Animation Library Initialization
-        AOS.init({
-            duration: 1200,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            once: true,
-            offset: 100,
-            delay: 100
-        });
+        AOS.init({ duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true, offset: 100, delay: 100 });
 
         // 4. Navbar Scroll Effect
         window.addEventListener('scroll', () => {
@@ -828,6 +827,44 @@
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('active');
             });
+        });
+
+        // 9. Iframe Modal Logic (嵌入式动态内容展示)
+        const modal = document.getElementById('newsModal');
+        const iframe = document.getElementById('newsIframe');
+
+        document.querySelectorAll('.open-in-modal').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // 阻止默认新页面跳转行为
+                const url = this.getAttribute('href');
+                if (url) {
+                    openModal(url);
+                }
+            });
+        });
+
+        function openModal(url) {
+            iframe.src = url;
+            modal.style.display = 'flex';
+            void modal.offsetWidth; // 触发页面重绘 (Reflow)
+            modal.classList.add('show');
+            document.body.classList.add('modal-open'); // 禁用背景滚动，隐藏自定义光标防止错乱
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.classList.remove('modal-open'); 
+            setTimeout(() => {
+                modal.style.display = 'none';
+                iframe.src = ''; // 释放内存，停止加载
+            }, 400); // 确保等待 CSS 动画完毕
+        }
+
+        // 点击蒙版外部区域也可以关闭弹窗
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
