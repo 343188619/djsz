@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title data-i18n="page_title">身份核验 | 垫江十中学生新媒体中心</title>
+    
+    <link rel="icon" href="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        :root {
+            --bg-light: #F7F7F7; --text-light: #111111; --bg-dark: #0A0A0A; --text-dark: #F2F2F2;
+            --gold: #B89C5D; --border-light: rgba(0, 0, 0, 0.1); --border-dark: rgba(255, 255, 255, 0.1);
+            --font-serif: 'Noto Serif SC', serif; --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: var(--font-sans); 
+            background-color: var(--bg-light); 
+            color: var(--text-light); 
+            transition: 0.8s ease; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+        }
+        [data-theme="dark"] body { background-color: var(--bg-dark); color: var(--text-dark); }
+
+        /* 背景装饰 */
+        .bg-ornament {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(184, 156, 93, 0.03) 0%, rgba(0,0,0,0) 100%);
+            z-index: -1;
+        }
+
+        /* 导航简版 */
+        .nav-simple {
+            padding: 2rem 5vw; display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .nav-brand img { height: 40px; }
+        .nav-brand h1 { font-family: var(--font-serif); font-size: 1.1rem; letter-spacing: 0.1em; }
+
+        /* 查询主体 */
+        .search-container {
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 0 5vw; margin-top: -5vh;
+        }
+        .search-card { width: 100%; max-width: 600px; text-align: center; }
+        .search-card h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; font-weight: 400; }
+        .search-card p { font-size: 0.85rem; color: #888; letter-spacing: 0.1em; margin-bottom: 3rem; text-transform: uppercase; }
+
+        /* 输入组设计 */
+        .input-group {
+            position: relative; display: flex; align-items: center;
+            background: transparent; border-bottom: 1px solid var(--border-light);
+            padding: 10px 0; transition: border-color 0.4s;
+        }
+        [data-theme="dark"] .input-group { border-bottom: 1px solid var(--border-dark); }
+        .input-group:focus-within { border-bottom: 1px solid var(--gold); }
+
+        .prefix { 
+            font-family: var(--font-sans); font-weight: 600; color: var(--gold); 
+            font-size: 1.5rem; margin-right: 5px; letter-spacing: 0.05em;
+        }
+        .query-input {
+            flex: 1; background: transparent; border: none; outline: none;
+            font-size: 1.5rem; font-family: var(--font-sans); color: inherit;
+            letter-spacing: 0.1em; width: 100%;
+        }
+        .query-input::placeholder { color: #ccc; font-size: 1rem; opacity: 0.5; }
+
+        .search-btn {
+            margin-top: 4rem; padding: 15px 60px; background: transparent;
+            border: 1px solid var(--gold); color: var(--gold);
+            font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); cursor: pointer;
+        }
+        .search-btn:hover { background: var(--gold); color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(184, 156, 93, 0.2); }
+
+        /* 提示信息 */
+        #msg { margin-top: 1.5rem; font-size: 0.8rem; color: #ff4d4f; opacity: 0; transition: 0.3s; }
+
+        footer { padding: 3rem 5vw; font-size: 0.7rem; color: #888; text-align: center; letter-spacing: 0.1em; }
+
+        @media (max-width: 768px) {
+            .search-card h2 { font-size: 1.8rem; }
+            .prefix, .query-input { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-ornament"></div>
+
+    <nav class="nav-simple">
+        <a href="index.html" class="nav-brand">
+            <img src="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" alt="SMC">
+            <h1 data-i18n="nav_brand">垫江十中学生新媒体中心</h1>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div style="cursor:pointer; font-size: 0.8rem; font-weight: bold;" onclick="switchLang()">
+                <span id="langLabel">EN</span>
+            </div>
+            <i class="fa-solid fa-circle-half-stroke" style="cursor:pointer" onclick="toggleTheme()"></i>
+        </div>
+    </nav>
+
+    <main class="search-container">
+        <div class="search-card" data-aos="fade-up">
+            <h2 data-i18n="query_title">工作证身份核验</h2>
+            <p data-i18n="query_sub">Credential Verification System</p>
+            
+            <div class="input-group">
+                <span class="prefix">DJSZ.</span>
+                <input type="text" id="idInput" class="query-input" placeholder="输入编号数字部分 (如 0000001)" autocomplete="off">
+            </div>
+            
+            <div id="msg" data-i18n="error_msg">请输入有效的编号数字</div>
+            
+            <button class="search-btn" onclick="handleSearch()" data-i18n="btn_text">立即核验 / VERIFY NOW</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DJ10Z STUDENT NEW MEDIA CENTER. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // 初始化 AOS
+        AOS.init({ duration: 1000 });
+
+        // 语言数据
+        const i18n = {
+            zh: {
+                page_title: "身份核验 | 垫江十中学生新媒体中心",
+                nav_brand: "垫江十中学生新媒体中心",
+                query_title: "工作证身份核验",
+                query_sub: "Credential Verification System",
+                btn_text: "立即核验 / VERIFY NOW",
+                error_msg: "请输入有效的编号数字",
+                placeholder: "输入编号数字部分 (如 0000001)"
+            },
+            en: {
+                page_title: "Verification | DJ10Z SMC",
+                nav_brand: "DJ10Z SMC",
+                query_title: "ID Verification",
+                query_sub: "Credential Verification System",
+                btn_text: "VERIFY NOW",
+                error_msg: "Please enter a valid ID number",
+                placeholder: "Enter digits only (e.g. 0000001)"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function switchLang() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = i18n[currentLang][key];
+            });
+            document.getElementById('idInput').placeholder = i18n[currentLang].placeholder;
+            document.getElementById('langLabel').innerText = currentLang === 'zh' ? 'EN' : 'ZH';
+            document.title = i18n[currentLang].page_title;
+        }
+
+        // 搜索逻辑
+        function handleSearch() {
+            const input = document.getElementById('idInput').value.trim();
+            const msg = document.getElementById('msg');
+            
+            if (input === "") {
+                msg.style.opacity = "1";
+                return;
+            }
+            
+            msg.style.opacity = "0";
+            // 执行跳转，例如输入 0000001 跳转到 0000001.html
+            window.location.href = input + ".html";
+        }
+
+        // 回车键触发
+        document.getElementById('idInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        // 主题切换
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.getAttribute('data-theme') === 'dark') html.removeAttribute('data-theme');
+            else html.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</body>
+</html>
