@@ -1,18 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title data-i18n="page_title">垫江十中学生新媒体中心 | 精锐影像·创意发声</title>
-    
     <meta name="description" content="垫江十中学生新媒体中心（SMC），13人精锐团队，记录每一份精彩，传递十中温度。由康朝凯提供技术支持。">
     <link rel="icon" href="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" type="image/png">
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@200;300;400;500&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
         :root {
@@ -20,90 +20,138 @@
             --gold: #B89C5D; --border-light: rgba(0, 0, 0, 0.1); --border-dark: rgba(255, 255, 255, 0.1);
             --font-serif: 'Noto Serif SC', 'Cormorant Garamond', serif; 
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; 
-            --spacing-xl: 12rem; --spacing-lg: 8rem;
+            --spacing-xl: 12rem;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
-        body { font-family: var(--font-sans); background-color: var(--bg-light); color: var(--text-light); line-height: 1.8; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: 0.8s ease; }
+        html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; width: 100%; max-width: 100vw; }
+        body { 
+            font-family: var(--font-sans); background-color: var(--bg-light); color: var(--text-light); 
+            line-height: 1.8; overflow-x: hidden; width: 100%; max-width: 100vw; position: relative;
+            -webkit-font-smoothing: antialiased; transition: background-color 0.8s ease, color 0.8s ease; 
+        }
+        
         [data-theme="dark"] body { background-color: var(--bg-dark); color: var(--text-dark); }
-        [data-theme="dark"] .line-border { border-color: var(--border-dark) !important; }
         a, button { text-decoration: none; color: inherit; outline: none; border: none; background: transparent; cursor: pointer; }
         
-        #preloader { position: fixed; inset: 0; z-index: 999999; background: #0A0A0A; display: flex; align-items: center; justify-content: center; animation: forceSlideOut 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards 1s; }
-        .loader-text { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; letter-spacing: 0.5em; }
-        @keyframes forceSlideOut { to { transform: translateY(-100%); visibility: hidden; } }
+        #preloader { position: fixed; inset: 0; z-index: 999999; background: #0A0A0A; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease; }
+        .loader-text { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; letter-spacing: 0.5em; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-        .navbar { position: fixed; top: 0; width: 100%; height: 100px; display: flex; justify-content: space-between; align-items: center; padding: 0 5vw; z-index: 1000; transition: 0.6s ease; color: #fff; }
-        .navbar.scrolled { background: rgba(247,247,247,0.92); backdrop-filter: blur(20px); height: 80px; color: var(--text-light); border-bottom: 1px solid var(--border-light); }
-        [data-theme="dark"] .navbar.scrolled { background: rgba(10,10,10,0.92); color: var(--text-dark); border-bottom: 1px solid var(--border-dark); }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 4vw; z-index: 1000; transition: 0.4s ease; color: #fff; }
+        .navbar.scrolled { background: rgba(247,247,247,0.95); backdrop-filter: blur(10px); color: var(--text-light); box-shadow: 0 1px 10px rgba(0,0,0,0.05); }
+        [data-theme="dark"] .navbar.scrolled { background: rgba(10,10,10,0.95); color: var(--text-dark); box-shadow: 0 1px 10px rgba(0,0,0,0.5); }
         
-        .nav-brand { display: flex; align-items: center; gap: 12px; }
-        .nav-brand img { height: 42px; width: 42px; }
-        .nav-brand h1 { font-family: var(--font-serif); font-size: 1.2rem; letter-spacing: 0.1em; white-space: nowrap; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 1; min-width: 0; }
+        .nav-brand img { height: 38px; width: 38px; flex-shrink: 0; }
+        .nav-brand h1 { font-family: var(--font-serif); font-size: 1.1rem; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         
-        .nav-links { display: flex; gap: 2.5vw; align-items: center; }
-        .nav-links a { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; transition: 0.3s; }
+        .nav-links { display: flex; gap: 2vw; align-items: center; }
+        .nav-links a { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
         
-        /* 醒目的工作证查询按钮 */
-        .id-btn { padding: 8px 18px; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; background: rgba(184, 156, 93, 0.05); }
+        .id-btn { padding: 6px 14px; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; white-space: nowrap; }
         .id-btn:hover { background: var(--gold); color: #fff !important; }
 
-        .toolbar { display: flex; align-items: center; gap: 1.5rem; }
-        .mobile-toggle { display: none; font-size: 1.5rem; }
+        .toolbar { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+        .mobile-toggle { display: none; font-size: 1.4rem; padding: 5px; }
 
-        /* 巨幕逻辑 */
-        .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 5vw; background: #000; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; z-index: 1; }
-        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; animation: kenBurns 20s infinite alternate linear; }
-        .hero-slider { position: absolute; inset: 0; width: 100%; height: 100%; display: none; z-index: 1; }
-        .hero-slider.active { display: block; }
-        .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: bgFade 24s infinite; filter: brightness(0.6); }
-        @keyframes bgFade { 0%, 25%, 100% { opacity: 0; } 5%, 20% { opacity: 1; } }
-        @keyframes kenBurns { 0% { transform: scale(1.05); } 100% { transform: scale(1.15); } }
-        
-        .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%); }
+        .hero { height: 100vh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 5vw; background: #000; }
+        .hero-bg, .hero-overlay { position: absolute; inset: 0; z-index: 1; }
+        .hero-video { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; transform: translateZ(0); }
+        .hero-overlay { z-index: 2; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%); pointer-events: none; }
         .hero-content { position: relative; z-index: 3; color: #fff; margin-bottom: 5vh; }
-        .hero-content p { font-family: var(--font-sans); font-size: 0.85rem; letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--gold); }
-        .hero-content h1 { font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 6rem); font-weight: 400; line-height: 1.2; }
+        .hero-content p { font-size: 0.85rem; letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 1.5rem; color: var(--gold); }
+        .hero-content h1 { font-family: var(--font-serif); font-size: clamp(2rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.2; }
 
         .stats-section { padding: 4rem 5vw; border-bottom: 1px solid var(--border-light); }
-        .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; }
-        .stat-num { font-family: var(--font-serif); font-size: clamp(3.5rem, 5vw, 5rem); }
-        .stat-label { font-size: 0.7rem; color: #888; letter-spacing: 0.2em; text-transform: uppercase; }
+        [data-theme="dark"] .stats-section { border-bottom-color: var(--border-dark); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; }
+        .stat-num { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        .stat-label { font-size: 0.75rem; color: #888; letter-spacing: 0.1em; }
 
-        .section-wrap { padding: var(--spacing-xl) 5vw; }
-        .ed-heading { border-bottom: 1px solid var(--border-light); padding-bottom: 2rem; margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: flex-end; }
-        .ed-heading h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; }
-        .ed-heading .sub { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; }
+        .section-wrap { padding: 6rem 5vw; }
+        .ed-heading { border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem; margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 10px; }
+        [data-theme="dark"] .ed-heading { border-bottom-color: var(--border-dark); }
+        .ed-heading h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; }
+        .ed-heading .sub { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; }
 
-        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; }
-        .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(100%); transition: 1s ease; }
-        .about-layout:hover .about-img { filter: grayscale(0%); }
-        .about-text { font-family: var(--font-serif); font-size: 1.2rem; line-height: 2.2; }
+        .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: center; }
+        .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; }
+        .about-text { font-family: var(--font-serif); font-size: 1.15rem; line-height: 2; }
 
-        .news-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; }
-        .news-feature img { width: 100%; aspect-ratio: 16/10; object-fit: cover; margin-bottom: 2rem; transition: 1s; }
-        .news-feature:hover img { transform: scale(1.03); }
-        .news-row { padding: 1.8rem 0; border-bottom: 1px solid var(--border-light); display: block; transition: 0.4s; }
-        .news-row:hover { padding-left: 1rem; color: var(--gold); }
+        .works-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; margin-bottom: 4rem; }
+        .video-item h4 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1rem; font-weight: 500; }
+        .video-item video { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; background: #000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); outline: none; }
+        
+        .gallery-header { margin-bottom: 1.5rem; }
+        .gallery-header h3 { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; display: inline-block; margin-right: 15px; }
+        .gallery-header span { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; }
 
-        .footer { background: #080808; color: #F2F2F2; padding: 6rem 5vw 3rem; }
-        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 5vw; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
-        .f-info-item { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.8rem 0; font-size: 0.9rem; }
-        .f-info-item span:first-child { color: #555; }
+        .gallery-container { max-height: 60vh; overflow-y: auto; overflow-x: hidden; padding-right: 10px; margin-right: -10px; -webkit-overflow-scrolling: touch; }
+        .gallery-container::-webkit-scrollbar { width: 5px; }
+        .gallery-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 10px; }
+        .gallery-container::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-        .news-modal { display: none; position: fixed; inset: 0; z-index: 100000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; opacity: 0; transition: 0.5s; }
-        .news-modal.show { display: flex; opacity: 1; }
-        .modal-content { width: 90vw; max-width: 1000px; height: 80vh; background: #fff; display: flex; flex-direction: column; }
-        .modal-body iframe { width: 100%; height: 100%; border: none; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+        
+        .photo-wrapper { width: 100%; aspect-ratio: 4/3; background: #e0e0e0; border-radius: 4px; overflow: hidden; position: relative; content-visibility: auto; contain-intrinsic-size: 180px; }
+        [data-theme="dark"] .photo-wrapper { background: #222; }
+        
+        .photo-grid img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; opacity: 0; transition: opacity 0.5s ease, transform 0.4s ease; will-change: transform, opacity; }
+        .photo-grid img.loaded { opacity: 1; }
+        .photo-grid img:hover { transform: scale(1.05); }
 
-        @media (max-width: 1024px) {
-            .about-layout, .news-layout, .footer-top { grid-template-columns: 1fr; }
-            .nav-links { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #0A0A0A; flex-direction: column; justify-content: center; transform: translateY(-100%); transition: 0.6s; z-index: -1; }
+        .img-lightbox { position: fixed; inset: 0; z-index: 100000; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; backdrop-filter: blur(5px); }
+        .img-lightbox.active { opacity: 1; pointer-events: auto; }
+        .img-lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border-radius: 4px; transform: scale(0.95); transition: transform 0.3s ease; }
+        .img-lightbox.active img { transform: scale(1); }
+        .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 2rem; cursor: pointer; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 100001; }
+
+        .footer { background: #080808; color: #888; padding: 4rem 5vw 2rem; font-size: 0.85rem; }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3vw; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 3rem; margin-bottom: 2rem; }
+        .f-brand h2 { color: #fff; font-family: var(--font-serif); }
+        .f-info-item { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding: 0.8rem 0; color: #ccc; }
+
+        /* ========= 移动端专属优化 ========= */
+        @media (max-width: 768px) {
+            .nav-brand h1 { display: none; } /* 隐藏长标题防挤压按钮 */
+            .toolbar { gap: 12px; }
+            .lang-switch { font-size: 0.8rem; }
+            
+            /* 全屏菜单彻底重构，保证极佳的可读性 */
+            .nav-links { 
+                position: fixed; top: 0; left: 0; 
+                width: 100%; height: 100vh; 
+                background: #0A0A0A; /* 强制纯黑底色 */
+                color: #F2F2F2 !important; /* 强制白字，避免网页下拉变色导致的黑底黑字 */
+                flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+                transform: translateY(-100%); 
+                transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); 
+                z-index: -1; 
+                padding-top: 50px;
+            }
             .nav-links.active { transform: translateY(0); }
-            .mobile-toggle { display: block; }
+            
+            .nav-links a { font-size: 1.3rem; letter-spacing: 0.2em; padding: 10px; } /* 字体放大，拉开间距 */
+            
+            /* 当菜单打开时，导航条主体也强行变黑，实现沉浸感 */
+            .navbar.menu-open {
+                background: #0A0A0A !important;
+                color: #F2F2F2 !important;
+                box-shadow: none !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-toggle { display: block; z-index: 1001; }
+            
+            .about-layout, .works-videos, .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+            .section-wrap { padding: 4rem 5vw; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            
+            [data-aos="fade-left"], [data-aos="fade-right"] { transform: translateY(30px) !important; }
+            [data-aos].aos-animate { transform: translateY(0) !important; }
         }
     </style>
 </head>
@@ -123,8 +171,8 @@
             <li><a href="cx.html" class="id-btn" data-i18n="nav_id_check">工作证查询</a></li>
         </ul>
         <div class="toolbar">
-            <div class="lang-switch" style="font-weight: bold; gap:10px; display: flex; cursor:pointer;">
-                <span id="langZh" onclick="switchLang('zh')">ZH</span>
+            <div class="lang-switch" style="font-weight: bold; gap:8px; display: flex; cursor:pointer;">
+                <span id="langZh" onclick="switchLang('zh')" style="color:var(--gold)">ZH</span>
                 <span id="langEn" onclick="switchLang('en')">EN</span>
             </div>
             <i class="fa-solid fa-circle-half-stroke" style="cursor:pointer;" onclick="toggleTheme()"></i>
@@ -135,22 +183,18 @@
     <!-- 巨幕 -->
     <header class="hero">
         <div class="hero-bg">
-            <div id="fallbackSlider" class="hero-slider">
-                <div class="hero-slide" style="background-image: url('https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kGmtGHtgwCIyGNrhwLqgYVxrqRj-AAIzEWsbqKVoVUs5IqevoZxtAQADAgADeQADOgQ.png')"></div>
-                <div class="hero-slide" style="background-image: url('https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERhrJprReY3PlnpzGScHq05ZKUdUFwAQACPSAAAlIUaFXeCbXMrrnxQDoE.jpeg')"></div>
-            </div>
             <video id="heroVideo" class="hero-video" loop muted playsinline autoplay poster="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png">
                 <source src="https://default-uqewhjj.cdn.7caiyun.com/3%E6%9C%8816%E6%97%A5%20(1).mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <p><span data-i18n="hero_sub">记录精彩 · 创意发声</span></p>
             <h1><span data-i18n="hero_title">垫江十中学生新媒体中心</span></h1>
         </div>
     </header>
 
-    <!-- 数据 - 13人精锐 -->
+    <!-- 数据 -->
     <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item" data-aos="fade-up">
@@ -166,7 +210,7 @@
                 <div class="stat-label" data-i18n="stat_3">年度数字资产</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-num" style="font-size:2.8rem">SMC</div>
+                <div class="stat-num" style="font-size:2.5rem; line-height:1.8;">SMC</div>
                 <div class="stat-label" data-i18n="stat_4">创意核心单位</div>
             </div>
         </div>
@@ -185,35 +229,42 @@
                 <p data-i18n="about_p2">在这个不到20人的核心团队中，我们通过影像、设计与文字，全方位构建垫江十中的数字化形象。每一份热爱都在这里被赋予专业的厚度。</p>
             </div>
             <div data-aos="fade-left">
-                <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png" alt="Works" class="about-img">
+                <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8kWmtGMVc8U7MU8afohnAmp4RUjI2AAI0EWsbqKVoVZjwvFzcDfAjAQADAgADeQADOgQ.png" alt="Works" class="about-img" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- 作品 -->
+    <!-- 作品区 -->
     <section class="section-wrap" id="news" style="padding-top:0">
         <div class="ed-heading" data-aos="fade-up">
             <h2 data-i18n="news_title">最新创作动态</h2>
             <div class="sub" data-i18n="news_sub">WORKS</div>
         </div>
-        <div class="news-layout">
-            <a href="https://www.jianpian.cn/a/1i8cb1cs" class="news-feature open-modal" data-aos="fade-right">
-                <img src="https://img.nickyam.com/file/AgACAgUAAyEGAASS2zT1AAI8jmmtGDN93IDS6z3jHKl3N2vQrFrjAAIxEWsbqKVoVd4avOoxRLtfAQADAgADdwADOgQ.webp" alt="V">
-                <h3 data-i18n="n_feat">视觉巨献：以梦为驰，向光而行 —— SMC 年度品牌宣传片</h3>
-            </a>
-            <div class="news-list" data-aos="fade-left">
-                <a href="https://www.jianpian.cn/a/1iky8t1v" class="news-row open-modal">
-                    <h4 data-i18n="n_new">全程纪实：第十四届田径运动会全媒体播报</h4>
-                    <span class="news-row-date">2026.03.26</span>
-                </a>
-                <a href="https://www.jianpian.cn/a/1i6mi52h" class="news-row open-modal">
-                    <h4 data-i18n="n_1">创意推文：致全体学生及家长的一封温情信笺</h4>
-                    <span class="news-row-date">2026.02.27</span>
-                </a>
-                <a href="https://www.jianpian.cn/a/1heuzjjo" class="news-row open-modal">
-                    <h4 data-i18n="n_2">深度专访：初2024级师生镜头后的学情故事</h4>
-                    <span class="news-row-date">2026.01.15</span>
-                </a>
+        
+        <div class="works-videos">
+            <div class="video-item" data-aos="fade-up">
+                <h4 data-i18n="v_23">第23届田径运动会宣传片（2025）</h4>
+                <video autoplay loop muted playsinline controls preload="metadata" poster="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png">
+                    <source src="https://yundonghui-uqewhjj.cdn.7caiyun.com/2352a0f639bf6c006e8f1019f2752c89.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-item" data-aos="fade-up" data-aos-delay="100">
+                <h4 data-i18n="v_24">第24届田径运动会宣传片（2026）</h4>
+                <video autoplay loop muted playsinline controls preload="metadata" poster="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png">
+                    <source src="https://yundonghui-uqewhjj.cdn.7caiyun.com/5bf8d7cbf89ef313e14164b15f8623d4.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div data-aos="fade-up">
+            <div class="gallery-header">
+                <h3 data-i18n="gallery_title">运动会精彩瞬间</h3>
+                <span data-i18n="gallery_sub">SMC 镜头下的高光时刻</span>
+            </div>
+            <div class="gallery-container" id="scrollContainer">
+                <div class="photo-grid" id="photoGrid">
+                    <!-- JS动态挂载骨架屏 -->
+                </div>
             </div>
         </div>
     </section>
@@ -221,29 +272,25 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="footer-top">
-            <div>
+            <div class="f-brand">
                 <h2 data-i18n="f_brand">垫江十中学生新媒体中心</h2>
-                <p style="color:var(--gold); letter-spacing: 0.2em; font-size: 0.75rem; margin-top: 1rem;">RECORD THE WONDER · VOICE THE CREATIVITY</p>
+                <p style="color:var(--gold); letter-spacing: 0.1em; font-size: 0.75rem; margin-top: 0.5rem;">RECORD THE WONDER · VOICE CREATIVITY</p>
             </div>
             <div class="f-info">
-                <div class="f-info-item"><span data-i18n="f_base">驻扎基地</span> <span>垫江十中校内</span></div>
-                <div class="f-info-item"><span data-i18n="f_email_t">联络邮箱</span> <span>343188619@qq.com</span></div>
-                <div class="f-info-item"><span data-i18n="f_dev_t">技术支持</span> <span>康朝凯</span></div>
+                <div class="f-info-item"><span data-i18n="f_base">驻扎基地</span> <span style="color:#fff">垫江十中校内</span></div>
+                <div class="f-info-item"><span data-i18n="f_email_t">联络邮箱</span> <span style="color:#fff">343188619@qq.com</span></div>
+                <div class="f-info-item"><span data-i18n="f_dev_t">技术支持</span> <span style="color:#fff">康朝凯</span></div>
             </div>
         </div>
-        <div style="margin-top: 4rem; opacity: 0.4; font-size: 0.75rem;">
-            &copy; 2026 DJ10Z STUDENT NEW MEDIA CENTER. ALL RIGHTS RESERVED.
+        <div style="opacity: 0.3; text-align: center;">
+            &copy; 2026 DJ10Z SMC. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
-    <!-- 弹窗 -->
-    <div id="newsModal" class="news-modal">
-        <div class="modal-content">
-            <div style="padding:15px; text-align:right; border-bottom:1px solid rgba(0,0,0,0.1)">
-                <i class="fa-solid fa-xmark" style="cursor:pointer; font-size: 1.5rem;" onclick="closeModal()"></i>
-            </div>
-            <div class="modal-body"><iframe id="newsIframe"></iframe></div>
-        </div>
+    <!-- 全屏图片预览 Lightbox -->
+    <div id="imgLightbox" class="img-lightbox" onclick="closeLightbox()">
+        <i class="fa-solid fa-xmark lightbox-close"></i>
+        <img id="lightboxImage" src="" alt="Preview" onclick="event.stopPropagation()">
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -257,10 +304,8 @@
                 about_p1: "垫江十中学生新媒体中心（Student New Media Center）是一个追求极致的精锐媒介组织。我们由13名跨年级的优秀创作者组成，不仅是校园生活的记录者，更是校园文化的引领者。",
                 about_p2: "在这个不到20人的核心团队中，我们通过影像、设计与文字，全方位构建垫江十中的数字化形象。",
                 news_title: "最新创作动态", news_sub: "WORKS",
-                n_feat: "视觉巨献：以梦为驰，向光而行 —— SMC 年度品牌宣传片",
-                n_new: "全程纪实：第十四届田径运动会全媒体播报",
-                n_1: "创意推文：致全体学生及家长的一封温情信笺",
-                n_2: "深度专访：初2024级师生镜头后的学情故事",
+                v_23: "第23届田径运动会宣传片（2025）", v_24: "第24届田径运动会宣传片（2026）",
+                gallery_title: "运动会精彩瞬间", gallery_sub: "SMC 镜头下的高光时刻",
                 f_brand: "垫江十中学生新媒体中心", f_base: "驻扎基地", f_email_t: "联络邮箱", f_dev_t: "技术支持"
             },
             en: {
@@ -271,11 +316,9 @@
                 about_p1: "DJ10Z Student New Media Center (SMC) is an elite official media organization. With only 13 dedicated members, we lead the campus digital narrative.",
                 about_p2: "In this focused team, we construct the digital image of Dianjiang No.10 through visual art and journalism.",
                 news_title: "LATEST CREATIONS", news_sub: "WORKS",
-                n_feat: "Brand Video: Chasing Dreams - SMC Annual Visual Production",
-                n_new: "Live Report: 14th Athletic Meeting Media Coverage",
-                n_1: "Article: A Warm Letter to Students and Parents",
-                n_2: "In-depth: Behind-the-scenes Interviews with Grade 2024",
-                f_brand: "DJ10Z SMC", f_base: "LOCATION", f_email_t: "EMAIL", f_dev_t: "TECH SUPPORT"
+                v_23: "23rd Athletic Meet Promo (2025)", v_24: "24th Athletic Meet Promo (2026)",
+                gallery_title: "Athletic Highlights", gallery_sub: "SHOT BY SMC LENS",
+                f_brand: "DJ10Z SMC", f_base: "LOCATION", f_email_t: "EMAIL", f_dev_t: "TECH"
             }
         };
 
@@ -289,18 +332,57 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('heroVideo');
-            const slider = document.getElementById('fallbackSlider');
-            video.play().catch(() => {
-                video.style.display = 'none';
-                slider.classList.add('active');
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.display = 'none', 600);
+            }, 500);
+
+            AOS.init({ duration: 800, once: true, offset: 50, disable: 'mobile' });
+
+            const imgUrls = [
+                "1758_5","1801_6","1803_7","1806_8","1807_9","1810_10","1811_11","1813_12",
+                "1814_13","1816_14","1817_15","1822_16","1824_17","1825_18","1826_19","1828_20",
+                "1830_21","1834_22","1836_23","1838_24","1840_25","1841_26","1843_27","1844_28",
+                "1845_29","1847_30","1849_31","1852_32","1854_33","1855_34","1856_35","1858_36",
+                "1859_37","1901_38","1903_39","1904_40","1905_41","1906_42","1908_43","1909_44",
+                "1910_45","1911_46","1913_47","1914_48","1916_49","1917_50","1919_51"
+            ];
+            
+            const photoGrid = document.getElementById('photoGrid');
+            const scrollContainer = document.getElementById('scrollContainer');
+            
+            let htmlString = "";
+            imgUrls.forEach(suffix => {
+                const fullUrl = `https://zhaopian-uqewhjj.cdn.7caiyun.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2026040312${suffix}_74.jpg`;
+                htmlString += `<div class="photo-wrapper"><img data-src="${fullUrl}" alt="SMC Photo" onclick="openLightbox('${fullUrl}')"></div>`;
             });
-            setTimeout(() => { AOS.init({ duration: 1000, once: true }); }, 1200);
+            photoGrid.innerHTML = htmlString;
+
+            if ('IntersectionObserver' in window) {
+                const imgObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.getAttribute('data-src');
+                            img.onload = () => img.classList.add('loaded'); 
+                            observer.unobserve(img); 
+                        }
+                    });
+                }, { root: scrollContainer, rootMargin: '100px' }); 
+
+                document.querySelectorAll('.photo-wrapper img').forEach(img => imgObserver.observe(img));
+            } else {
+                document.querySelectorAll('.photo-wrapper img').forEach(img => {
+                    img.src = img.getAttribute('data-src');
+                    img.classList.add('loaded');
+                });
+            }
         });
 
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if(window.scrollY > 80) nav.classList.add('scrolled');
+            if(window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
@@ -310,10 +392,24 @@
             else html.setAttribute('data-theme', 'dark');
         }
 
+        // 优化后的移动端菜单控制逻辑
         function toggleMobileMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-            document.getElementById('mobileMenuBtn').classList.toggle('fa-bars');
-            document.getElementById('mobileMenuBtn').classList.toggle('fa-xmark');
+            if(window.innerWidth > 768) return;
+            const navLinks = document.getElementById('navLinks');
+            const btn = document.getElementById('mobileMenuBtn');
+            const navbar = document.getElementById('navbar'); // 获取导航栏本体
+            
+            navLinks.classList.toggle('active');
+            
+            if(navLinks.classList.contains('active')) {
+                navbar.classList.add('menu-open'); // 开启菜单时导航栏强制变黑
+                btn.classList.replace('fa-bars', 'fa-xmark');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                navbar.classList.remove('menu-open'); // 关闭菜单时恢复原状
+                btn.classList.replace('fa-xmark', 'fa-bars');
+                document.body.style.overflow = 'auto';
+            }
         }
 
         const counters = document.querySelectorAll('.counter');
@@ -323,26 +419,30 @@
                     const target = +e.target.getAttribute('data-target');
                     let current = 0;
                     const timer = setInterval(() => {
-                        current += Math.ceil(target / 30);
+                        current += Math.ceil(target / 20);
                         if(current >= target) { e.target.innerText = target; clearInterval(timer); }
                         else e.target.innerText = current;
                     }, 50);
+                    countObserver.unobserve(e.target);
                 }
             });
         });
         counters.forEach(c => countObserver.observe(c));
 
-        const modal = document.getElementById('newsModal');
-        const iframe = document.getElementById('newsIframe');
-        document.querySelectorAll('.open-modal').forEach(link => {
-            link.onclick = (e) => {
-                e.preventDefault();
-                iframe.src = link.href;
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-        function closeModal() { modal.classList.remove('show'); iframe.src=''; document.body.style.overflow = 'auto'; }
+        const lightbox = document.getElementById('imgLightbox');
+        const lightboxImg = document.getElementById('lightboxImage');
+        
+        function openLightbox(url) {
+            lightboxImg.src = url;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+            setTimeout(() => { lightboxImg.src = ''; }, 300); 
+        }
     </script>
 </body>
 </html>
