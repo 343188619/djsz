@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,15 +10,24 @@
     
     <link rel="icon" href="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" type="image/png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- 引入高级字体：衬线体用于标题/装饰，非衬线体用于正文 -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
+        /* ================== 全局与主题变量 ================== */
         :root {
             --bg-light: #F7F7F7; --text-light: #111111; --bg-dark: #0A0A0A; --text-dark: #F2F2F2;
-            --gold: #B89C5D; --border-light: rgba(0, 0, 0, 0.1); --border-dark: rgba(255, 255, 255, 0.1);
-            --font-serif: 'Noto Serif SC', serif; --font-sans: 'Inter', sans-serif;
+            --gold: #B89C5D; --gold-light: #dfc893; --border-light: rgba(0, 0, 0, 0.1); --border-dark: rgba(255, 255, 255, 0.1);
+            --font-serif: 'Noto Serif SC', 'Cormorant Garamond', serif; 
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            
+            /* 工作证及结果页专属变量 */
+            --primary-blue: #2a5885; 
+            --light-blue: #7d9bb9;   
+            --text-gray: #666666;
+            --text-dark-card: #222222;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,143 +35,521 @@
             font-family: var(--font-sans); 
             background-color: var(--bg-light); 
             color: var(--text-light); 
-            transition: 0.8s ease; 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column; 
+            transition: background-color 0.8s ease, color 0.8s ease; 
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
         [data-theme="dark"] body { background-color: var(--bg-dark); color: var(--text-dark); }
 
-        /* 背景装饰 */
+        /* ================== 查询页面 (Search Section) ================== */
+        #search-section {
+            display: flex; flex-direction: column; min-height: 100vh;
+            overflow: hidden; position: relative; z-index: 1;
+        }
+
         .bg-ornament {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(184, 156, 93, 0.03) 0%, rgba(0,0,0,0) 100%);
-            z-index: -1;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(184, 156, 93, 0.04) 0%, rgba(0,0,0,0) 100%);
+            z-index: -1; pointer-events: none;
         }
 
-        /* 导航简版 */
-        .nav-simple {
-            padding: 2rem 5vw; display: flex; justify-content: space-between; align-items: center;
-        }
-        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .nav-simple { padding: 2rem 5vw; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: opacity 0.3s;}
+        .nav-brand:hover { opacity: 0.8; }
         .nav-brand img { height: 40px; }
-        .nav-brand h1 { font-family: var(--font-serif); font-size: 1.1rem; letter-spacing: 0.1em; }
+        .nav-brand h1 { font-family: var(--font-serif); font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 500;}
 
-        /* 查询主体 */
-        .search-container {
-            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 0 5vw; margin-top: -5vh;
-        }
+        .search-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 5vw; margin-top: -5vh; }
         .search-card { width: 100%; max-width: 600px; text-align: center; }
-        .search-card h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; font-weight: 400; }
-        .search-card p { font-size: 0.85rem; color: #888; letter-spacing: 0.1em; margin-bottom: 3rem; text-transform: uppercase; }
+        .search-card h2 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; font-weight: 400; letter-spacing: 2px;}
+        .search-card p { font-size: 0.85rem; color: #888; letter-spacing: 0.15em; margin-bottom: 3.5rem; text-transform: uppercase; font-weight: 300;}
 
-        /* 输入组设计 */
         .input-group {
-            position: relative; display: flex; align-items: center;
+            position: relative; display: flex; align-items: center; justify-content: center;
             background: transparent; border-bottom: 1px solid var(--border-light);
             padding: 10px 0; transition: border-color 0.4s;
         }
         [data-theme="dark"] .input-group { border-bottom: 1px solid var(--border-dark); }
         .input-group:focus-within { border-bottom: 1px solid var(--gold); }
 
-        .prefix { 
-            font-family: var(--font-sans); font-weight: 600; color: var(--gold); 
-            font-size: 1.5rem; margin-right: 5px; letter-spacing: 0.05em;
-        }
+        .prefix { font-family: var(--font-sans); font-weight: 500; color: var(--gold); font-size: 1.5rem; margin-right: 8px; letter-spacing: 0.05em; }
         .query-input {
-            flex: 1; background: transparent; border: none; outline: none;
-            font-size: 1.5rem; font-family: var(--font-sans); color: inherit;
-            letter-spacing: 0.1em; width: 100%;
+            flex: 1; background: transparent; border: none; outline: none; text-align: left;
+            font-size: 1.5rem; font-family: var(--font-sans); color: inherit; letter-spacing: 0.1em; width: 100%; font-weight: 300;
         }
-        .query-input::placeholder { color: #ccc; font-size: 1rem; opacity: 0.5; }
+        .query-input::placeholder { color: #ccc; font-size: 1.1rem; opacity: 0.6; font-weight: 300;}
+        [data-theme="dark"] .query-input::placeholder { color: #666; }
 
         .search-btn {
-            margin-top: 4rem; padding: 15px 60px; background: transparent;
+            margin-top: 4rem; padding: 16px 65px; background: transparent;
             border: 1px solid var(--gold); color: var(--gold);
-            font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); cursor: pointer;
+            font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase;
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); cursor: pointer; position: relative; overflow: hidden;
         }
-        .search-btn:hover { background: var(--gold); color: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(184, 156, 93, 0.2); }
+        .search-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--gold); transition: all 0.5s ease; z-index: -1; }
+        .search-btn:hover::before { left: 0; }
+        .search-btn:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(184, 156, 93, 0.25); border-color: transparent;}
 
-        /* 提示信息 */
-        #msg { margin-top: 1.5rem; font-size: 0.8rem; color: #ff4d4f; opacity: 0; transition: 0.3s; }
+        footer { padding: 3rem 5vw; font-size: 0.7rem; color: #888; text-align: center; letter-spacing: 0.1em; font-weight: 300;}
 
-        footer { padding: 3rem 5vw; font-size: 0.7rem; color: #888; text-align: center; letter-spacing: 0.1em; }
+        /* ================== 弹窗样式 (Modal) ================== */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center; z-index: 9999;
+            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-box {
+            background: #fff; padding: 40px 50px; border-radius: 16px;
+            text-align: center; max-width: 400px; width: 90%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: scale(0.9) translateY(20px); opacity: 0; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        [data-theme="dark"] .modal-box { background: #1a1a1a; color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+        .modal-overlay.active .modal-box { transform: scale(1) translateY(0); opacity: 1; }
+        
+        .modal-icon {
+            width: 60px; height: 60px; border-radius: 50%; background: rgba(220, 53, 69, 0.1);
+            color: #dc3545; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin: 0 auto 20px;
+        }
+        .modal-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 10px; font-weight: 500;}
+        .modal-desc { font-size: 0.95rem; color: #666; margin-bottom: 30px; line-height: 1.5; }
+        [data-theme="dark"] .modal-desc { color: #aaa; }
+        .modal-btn {
+            background: var(--text-light); color: var(--bg-light); border: none;
+            padding: 12px 30px; font-size: 0.9rem; letter-spacing: 1px; border-radius: 8px;
+            cursor: pointer; transition: 0.3s; width: 100%;
+        }
+        [data-theme="dark"] .modal-btn { background: var(--text-dark); color: var(--bg-dark); }
+        .modal-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+
+        /* ================== 结果页面 (Result Section - 艺术感升级) ================== */
+        #result-section {
+            display: none; flex-direction: column; align-items: center;
+            background-color: #F9F9F8; /* 极简暖灰白底 */
+            /* 柔和的高级光晕背景 */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(184, 156, 93, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(42, 88, 133, 0.04), transparent 25%);
+            min-height: 100vh; padding: 40px 20px 80px; color: #111;
+            position: relative; animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 高级返回按钮 */
+        .result-nav { width: 100%; max-width: 900px; display: flex; justify-content: flex-start; margin-bottom: 40px; }
+        .btn-back {
+            background: transparent; border: none; color: #888; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease; position: relative;
+        }
+        .btn-back i { font-size: 1rem; transition: transform 0.3s; }
+        .btn-back:hover { color: var(--text-dark-card); }
+        .btn-back:hover i { transform: translateX(-5px); }
+        .btn-back::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--text-dark-card); transition: width 0.3s; }
+        .btn-back:hover::after { width: 100%; }
+
+        /* 艺术感状态徽标 */
+        .verify-header { text-align: center; margin-bottom: 50px; display: flex; flex-direction: column; align-items: center; }
+        .cert-seal {
+            width: 50px; height: 50px; background: #FAF7F2; border: 1px solid var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 20px;
+            margin-bottom: 15px; box-shadow: 0 0 20px rgba(184,156,93,0.15);
+        }
+        .verify-header h1 { font-family: var(--font-serif); font-size: 28px; font-weight: 500; color: #222; letter-spacing: 4px; margin-bottom: 8px;}
+        .verify-header p { font-size: 10px; letter-spacing: 0.2em; color: #888; text-transform: uppercase; font-family: var(--font-sans); }
+
+        /* 布局容器：大屏左右，小屏上下 */
+        .result-content {
+            display: flex; gap: 60px; max-width: 900px; width: 100%; justify-content: center; align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* 工作证实体复刻 (1:1保持，强化了外围质感) */
+        .card-wrapper {
+            position: relative;
+            padding: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #fcfcfc 100%);
+            border-radius: 6px;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.06), 
+                0 4px 15px rgba(0,0,0,0.03),
+                inset 0 0 0 1px rgba(255,255,255,0.8); /* 边缘微光 */
+            border: 1px solid #eaeaea;
+        }
+        .card-container {
+            width: 360px; height: 580px; background: #ffffff;
+            display: flex; flex-direction: column; overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .card-body { flex: 1; display: flex; padding: 30px 20px 20px 25px; position: relative; background-image: radial-gradient(#eef1f5 1px, transparent 1px); background-size: 15px 15px;}
+        
+        .card-left { width: 100px; display: flex; flex-direction: column; justify-content: space-between; z-index: 2;}
+        .title-group { display: flex; gap: 12px; height: 220px; }
+        .title-en { writing-mode: vertical-lr; transform: rotate(180deg); color: var(--primary-blue); font-size: 18px; letter-spacing: 2px; font-family: Arial, sans-serif; opacity: 0.9; }
+        .title-line { width: 2px; background-color: var(--primary-blue); height: 100%; }
+        .title-cn { writing-mode: vertical-lr; color: var(--primary-blue); font-size: 42px; font-family: "STSong", "SimSun", serif; letter-spacing: 15px; font-weight: bold; }
+
+        .logo-group { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; margin-left: -10px; }
+        .logo-group img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .logo-school { margin-bottom: 15px; }
+        .logo-media { margin-bottom: 5px; }
+        .logo-text { text-align: center; font-size: 9px; color: var(--text-dark-card); font-weight: bold; line-height: 1.2; }
+        .logo-text span { font-size: 6px; color: var(--text-gray); font-weight: normal; transform: scale(0.9); display: inline-block; }
+
+        .card-right { flex: 1; display: flex; flex-direction: column; align-items: flex-end; z-index: 2;}
+        .id-number-box { border: 2px solid var(--light-blue); color: var(--light-blue); padding: 8px 12px; font-size: 15px; font-family: Arial, sans-serif; letter-spacing: 1px; margin-bottom: 25px; width: 150px; text-align: center; background: rgba(255,255,255,0.7); backdrop-filter: blur(2px);}
+        
+        .photo-box { width: 140px; height: 180px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; margin-bottom: 30px; margin-right: 10px; border: 1px solid #e0e0e0; position: relative;}
+        .photo-box svg { width: 60px; height: 60px; fill: #d0d0d0; }
+        .real-photo { width: 100%; height: 100%; object-fit: cover; display: none; }
+
+        .info-form { width: 100%; padding-left: 10px; }
+        .info-row { margin-bottom: 18px; }
+        .info-label { color: var(--primary-blue); font-size: 14px; margin-bottom: 5px; display: flex; align-items: flex-end; gap: 8px; font-weight: 500;}
+        .info-label span { font-size: 11px; color: var(--primary-blue); font-weight: 400; opacity: 0.8;}
+        .info-value { border-bottom: 1px solid #b0c2d3; padding-bottom: 4px; font-size: 16px; color: #111; min-height: 22px; font-family: "PingFang SC", sans-serif; font-weight: 500;}
+
+        .card-footer { background-color: #2b6196; color: #ffffff; text-align: center; padding: 15px 0; z-index: 2;}
+        .card-footer .cn { font-size: 15px; letter-spacing: 3px; margin-bottom: 4px; font-weight: 300;}
+        .card-footer .en { font-size: 8px; color: rgba(255,255,255,0.7); letter-spacing: 0.5px;}
+
+        /* 高级艺术感：提取档案信息面板 */
+        .dossier-panel {
+            width: 100%; max-width: 400px;
+            background: transparent;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        .dossier-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: #333;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .dossier-title::after { content: ''; flex: 1; height: 1px; background: #ddd; }
+        
+        .dossier-list { display: flex; flex-direction: column; gap: 20px; }
+        .dossier-item {
+            display: flex; flex-direction: column; gap: 4px;
+            padding-bottom: 15px; border-bottom: 1px solid #eaeaea;
+            position: relative;
+        }
+        .dossier-item:last-child { border-bottom: none; }
+        
+        .d-label {
+            font-size: 0.75rem; color: #888; text-transform: uppercase;
+            letter-spacing: 1px; font-family: var(--font-sans);
+        }
+        .d-val {
+            font-size: 1.2rem; color: #111; font-family: var(--font-serif);
+            letter-spacing: 1px;
+        }
+        
+        /* 职务高亮特殊设计：仿盖章/丝带效果 */
+        .dossier-item.highlight {
+            padding: 20px;
+            background: #fdfaf5; /* 极浅的金底 */
+            border: 1px solid rgba(184, 156, 93, 0.2);
+            border-left: 3px solid var(--gold);
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .dossier-item.highlight .d-label { color: var(--gold); font-weight: 500;}
+        .dossier-item.highlight .d-val { 
+            color: #333; font-weight: 600; font-size: 1.4rem; 
+            font-family: var(--font-sans); margin-top: 5px;
+        }
 
         @media (max-width: 768px) {
             .search-card h2 { font-size: 1.8rem; }
             .prefix, .query-input { font-size: 1.2rem; }
+            .result-content { flex-direction: column; align-items: center; gap: 40px;}
+            .dossier-panel { max-width: 360px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-ornament"></div>
-
-    <nav class="nav-simple">
-        <a href="index.html" class="nav-brand">
-            <img src="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" alt="SMC">
-            <h1 data-i18n="nav_brand">垫江十中学生新媒体中心</h1>
-        </a>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <div style="cursor:pointer; font-size: 0.8rem; font-weight: bold;" onclick="switchLang()">
-                <span id="langLabel">EN</span>
+    <!-- ================== 查询页面 (Search Section) ================== -->
+    <div id="search-section">
+        <div class="bg-ornament"></div>
+        <nav class="nav-simple">
+            <!-- 修复需求1：点击返回 index.html -->
+            <a href="index.html" class="nav-brand">
+                <img src="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" alt="SMC">
+                <h1 data-i18n="nav_brand">垫江十中学生新媒体中心</h1>
+            </a>
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <div style="cursor:pointer; font-size: 0.8rem; font-weight: 600;" onclick="switchLang()">
+                    <span id="langLabel">EN</span>
+                </div>
+                <i class="fa-solid fa-circle-half-stroke" style="cursor:pointer" onclick="toggleTheme()"></i>
             </div>
-            <i class="fa-solid fa-circle-half-stroke" style="cursor:pointer" onclick="toggleTheme()"></i>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="search-container">
-        <div class="search-card" data-aos="fade-up">
-            <h2 data-i18n="query_title">工作证身份核验</h2>
-            <p data-i18n="query_sub">Credential Verification System</p>
-            
-            <div class="input-group">
-                <span class="prefix">DJSZ.</span>
-                <input type="text" id="idInput" class="query-input" placeholder="输入编号数字部分 (如 0000001)" autocomplete="off">
+        <main class="search-container">
+            <div class="search-card" data-aos="fade-up">
+                <h2 data-i18n="query_title">工作证身份核验</h2>
+                <p data-i18n="query_sub">Credential Verification System</p>
+                
+                <div class="input-group">
+                    <span class="prefix">DJSZ.</span>
+                    <!-- 提示词修改以适应必须输入完整的限制 -->
+                    <input type="text" id="idInput" class="query-input" placeholder="输入完整编号 (如 0000001)" autocomplete="off">
+                </div>
+                
+                <button class="search-btn" onclick="handleSearch()" data-i18n="btn_text">验证凭证 / VERIFY</button>
             </div>
-            
-            <div id="msg" data-i18n="error_msg">请输入有效的编号数字</div>
-            
-            <button class="search-btn" onclick="handleSearch()" data-i18n="btn_text">立即核验 / VERIFY NOW</button>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 DJ10Z STUDENT NEW MEDIA CENTER. ALL RIGHTS RESERVED.</p>
+        </footer>
+    </div>
+
+    <!-- ================== 高级未查询到弹窗 (Modal) ================== -->
+    <div class="modal-overlay" id="errorModal" onclick="closeModal(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 class="modal-title" id="modalTitle">核验失败</h3>
+            <p class="modal-desc" id="modalDesc">抱歉，系统未查询到该编号对应的有效工作证信息。请检查编号是否输入正确。</p>
+            <button class="modal-btn" onclick="closeModal()">重新输入</button>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 DJ10Z STUDENT NEW MEDIA CENTER. ALL RIGHTS RESERVED.</p>
-    </footer>
 
+    <!-- ================== 结果页面 (Result Section - 艺术画廊风) ================== -->
+    <div id="result-section">
+        <!-- 顶部导航 -->
+        <div class="result-nav">
+            <button class="btn-back" onclick="goBack()">
+                <i class="fa-solid fa-arrow-left-long"></i> <span data-i18n="back_btn">返回查询 (BACK)</span>
+            </button>
+        </div>
+
+        <!-- 艺术感状态头 -->
+        <div class="verify-header">
+            <div class="cert-seal"><i class="fa-solid fa-check"></i></div>
+            <h1 data-i18n="valid_title">查验有效</h1>
+            <p data-i18n="valid_sub">Authentic Credential Verified</p>
+        </div>
+
+        <!-- 主体内容分左右排版 -->
+        <div class="result-content">
+            <!-- 左侧：工作证实体 -->
+            <div class="card-wrapper" data-aos="fade-right">
+                <div class="card-container">
+                    <div class="card-body">
+                        <div class="card-left">
+                            <div class="title-group">
+                                <div class="title-en">Employee's Card</div>
+                                <div class="title-line"></div>
+                                <div class="title-cn">工作证</div>
+                            </div>
+                            <div class="logo-group">
+                                <img src="https://default-uqewhjj.cdn.7caiyun.com/327dd6ebdf4d46ab9a22919a263a5b05.jpg" class="logo-school" alt="School Logo">
+                                <img src="https://default-uqewhjj.cdn.7caiyun.com/%E5%9E%AB%E6%B1%9F%E5%8D%81%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%96%B0%E5%AA%92%E4%BD%93%E4%B8%AD%E5%BF%83%202.png" class="logo-media" alt="Media Logo">
+                                <div class="logo-text">垫江十中学生新媒体中心<br><span>Dianjiang No. 10 Middle School New Media Center</span></div>
+                            </div>
+                        </div>
+                        <div class="card-right">
+                            <div class="id-number-box" id="card-id-num"></div>
+                            <div class="photo-box">
+                                <img src="" class="real-photo" id="card-photo">
+                                <svg id="default-avatar" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            </div>
+                            <div class="info-form">
+                                <div class="info-row">
+                                    <div class="info-label">姓名 <span>Name</span></div>
+                                    <div class="info-value" id="card-name"></div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">年级 <span>Grade</span></div>
+                                    <div class="info-value" id="card-grade"></div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">班级 <span>Class</span></div>
+                                    <div class="info-value" id="card-class"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cn">垫江十中学生新媒体中心</div>
+                        <div class="en">Dianjiang No. 10 Middle School Student New Media Center</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：高级档案提取信息 -->
+            <div class="dossier-panel" data-aos="fade-left" data-aos-delay="200">
+                <div class="dossier-title">
+                    <i class="fa-regular fa-folder-open" style="color: var(--gold); font-size: 1rem;"></i> 
+                    <span>人员注册档案 (Dossier)</span>
+                </div>
+                
+                <div class="dossier-list">
+                    <div class="dossier-item">
+                        <span class="d-label">注册编号 / ID Number</span>
+                        <span class="d-val" id="panel-id-num"></span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="dossier-item">
+                            <span class="d-label">姓名 / Name</span>
+                            <span class="d-val" id="panel-name"></span>
+                        </div>
+                        <div class="dossier-item">
+                            <span class="d-label">年级 / Grade</span>
+                            <span class="d-val" id="panel-grade"></span>
+                        </div>
+                    </div>
+                    <div class="dossier-item">
+                        <span class="d-label">班级所属 / Class</span>
+                        <span class="d-val" id="panel-class"></span>
+                    </div>
+                    <!-- 核心职务，单独卡片式高亮 -->
+                    <div class="dossier-item highlight">
+                        <span class="d-label">中心职务 / Appointed Position</span>
+                        <span class="d-val" id="panel-position"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== 核心逻辑脚本 ================== -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // 初始化 AOS
-        AOS.init({ duration: 1000 });
+        // 消除滚动条引起的小问题并初始化动画
+        document.body.style.overflow = 'hidden'; 
+        setTimeout(()=> { document.body.style.overflow = 'auto'; }, 100);
+        AOS.init({ duration: 1000, once: true, offset: 50 });
 
-        // 语言数据
+        /* ======== 1. 人员数据库 ======== */
+        // 规则：前4位为0000，后3位为有效编号
+        const memberDatabase = {
+            "0000001": { name: "康朝凯", grade: "初2023级", className: "24班", position: "现任社长" },
+            "0000002": { name: "王梓衡", grade: "初2023级", className: "17班", position: "现任副社长" },
+            "0000003": { name: "杨升鸿", grade: "初2024级", className: "2班", position: "航拍组组长" },
+            "0000004": { name: "李芷悦", grade: "初2024级", className: "23班", position: "下一任副社长" },
+            "0000005": { name: "黄群尧", grade: "初2024级", className: "10班", position: "人事招生部部长" },
+            "0000006": { name: "游梓函", grade: "初2024级", className: "10班", position: "预备秘书长/统筹规划协调部/活动策划部部长" },
+            "0000007": { name: "陈相君", grade: "初2025级", className: "15班", position: "下一任社长" },
+            "0000008": { name: "邓骁", grade: "初2024级", className: "9班", position: "下一任副社长/剪辑部部长" },
+            "0000009": { name: "秦梦妍", grade: "初2023级", className: "24班", position: "现任副秘书长" },
+            "0000010": { name: "张志熤", grade: "初2023级", className: "24班", position: "现任副社长" },
+            "0000011": { name: "王辰希", grade: "初2024级", className: "17班", position: "地面拍摄组组长" },
+            "0000012": { name: "许至善", grade: "初2023级", className: "12班", position: "顾问指导" },
+            "0000013": { name: "陈红", grade: "初2023级", className: "16班", position: "现任秘书长" },
+            "0000014": { name: "曾令浩", grade: "初2023级", className: "12班", position: "现任副秘书长" }
+        };
+
+        /* ======== 2. 查询与弹窗逻辑 ======== */
+        function handleSearch() {
+            let input = document.getElementById('idInput').value.trim();
+            
+            if (input === "") {
+                showModal("输入为空", "请输入完整的工作证编号进行核验。");
+                return;
+            }
+
+            // 【已移除】：智能补全逻辑。现在必须严格输入 0000001 格式
+
+            const userInfo = memberDatabase[input];
+
+            if (userInfo) {
+                // 渲染数据
+                renderResultPage(input, userInfo);
+                
+                // 平滑切换页面
+                document.getElementById('search-section').style.display = 'none';
+                document.getElementById('result-section').style.display = 'flex';
+                document.body.style.overflow = 'auto'; // 允许结果页滚动
+                window.scrollTo(0, 0); 
+                
+                // 重新触发动画
+                AOS.refreshHard();
+            } else {
+                // 弹窗提示未找到
+                const errorTitle = currentLang === 'zh' ? "核验失败" : "Verification Failed";
+                const errorDesc = currentLang === 'zh' ? "抱歉，系统未查询到该编号对应的有效工作证信息。请检查是否输入了完整的7位编号。" : "Sorry, no valid credential found for this ID. Please make sure you entered the complete 7-digit ID.";
+                showModal(errorTitle, errorDesc);
+            }
+        }
+
+        function renderResultPage(idNumber, data) {
+            const fullId = "DJSZ." + idNumber;
+            // 渲染工作证实体
+            document.getElementById('card-id-num').innerText = fullId;
+            document.getElementById('card-name').innerText = data.name;
+            document.getElementById('card-grade').innerText = data.grade;
+            document.getElementById('card-class').innerText = data.className;
+            
+            // 渲染右侧高级档案表
+            document.getElementById('panel-id-num').innerText = fullId;
+            document.getElementById('panel-name').innerText = data.name;
+            document.getElementById('panel-grade').innerText = data.grade;
+            document.getElementById('panel-class').innerText = data.className;
+            document.getElementById('panel-position').innerText = data.position;
+        }
+
+        function goBack() {
+            // 返回搜索页
+            document.getElementById('idInput').value = ''; 
+            document.getElementById('result-section').style.display = 'none';
+            document.getElementById('search-section').style.display = 'flex';
+        }
+
+        /* 弹窗控制 */
+        function showModal(title, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('errorModal').classList.add('active');
+        }
+        function closeModal(e) {
+            if (e && e.target !== document.getElementById('errorModal')) return;
+            document.getElementById('errorModal').classList.remove('active');
+            document.getElementById('idInput').focus();
+        }
+
+        // 回车键触发查询
+        document.getElementById('idInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        /* ======== 3. 多语言与主题 ======== */
         const i18n = {
             zh: {
                 page_title: "身份核验 | 垫江十中学生新媒体中心",
                 nav_brand: "垫江十中学生新媒体中心",
                 query_title: "工作证身份核验",
                 query_sub: "Credential Verification System",
-                btn_text: "立即核验 / VERIFY NOW",
-                error_msg: "请输入有效的编号数字",
-                placeholder: "输入编号数字部分 (如 0000001)"
+                btn_text: "验证凭证 / VERIFY",
+                placeholder: "输入完整编号 (如 0000001)",
+                back_btn: "返回查询 (BACK)",
+                valid_title: "查验有效",
+                valid_sub: "Authentic Credential Verified"
             },
             en: {
                 page_title: "Verification | DJ10Z SMC",
                 nav_brand: "DJ10Z SMC",
                 query_title: "ID Verification",
                 query_sub: "Credential Verification System",
-                btn_text: "VERIFY NOW",
-                error_msg: "Please enter a valid ID number",
-                placeholder: "Enter digits only (e.g. 0000001)"
+                btn_text: "VERIFY CREDENTIAL",
+                placeholder: "Enter full ID (e.g. 0000001)",
+                back_btn: "BACK TO SEARCH",
+                valid_title: "VERIFIED",
+                valid_sub: "Authentic Credential Verified"
             }
         };
 
         let currentLang = 'zh';
-
         function switchLang() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -173,27 +561,6 @@
             document.title = i18n[currentLang].page_title;
         }
 
-        // 搜索逻辑
-        function handleSearch() {
-            const input = document.getElementById('idInput').value.trim();
-            const msg = document.getElementById('msg');
-            
-            if (input === "") {
-                msg.style.opacity = "1";
-                return;
-            }
-            
-            msg.style.opacity = "0";
-            // 执行跳转，例如输入 0000001 跳转到 0000001.html
-            window.location.href = input + ".html";
-        }
-
-        // 回车键触发
-        document.getElementById('idInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSearch();
-        });
-
-        // 主题切换
         function toggleTheme() {
             const html = document.documentElement;
             if (html.getAttribute('data-theme') === 'dark') html.removeAttribute('data-theme');
